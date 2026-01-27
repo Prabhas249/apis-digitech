@@ -1,6 +1,6 @@
 'use client';
 
-import { Suspense, useState } from 'react';
+import { Suspense, useState, useEffect } from 'react';
 import { useRouter, useSearchParams } from 'next/navigation';
 import Link from 'next/link';
 
@@ -42,7 +42,7 @@ function LoginForm() {
   };
 
   return (
-    <form onSubmit={handleSubmit}>
+    <form onSubmit={handleSubmit} className="login-form">
       {error && (
         <div className="login-error">
           <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
@@ -111,8 +111,14 @@ function LoginForm() {
 }
 
 export default function LoginPage() {
+  const [mounted, setMounted] = useState(false);
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
+
   return (
-    <div className="login-page">
+    <div className={`login-page ${mounted ? 'mounted' : ''}`}>
       {/* Animated background */}
       <div className="bg-gradient" />
       <div className="bg-grid" />
@@ -138,8 +144,10 @@ export default function LoginPage() {
           </div>
 
           <Suspense fallback={
-            <div style={{ padding: '2rem', textAlign: 'center', color: '#64748b' }}>
-              Loading...
+            <div className="login-form-skeleton">
+              <div className="skeleton-field" />
+              <div className="skeleton-field" />
+              <div className="skeleton-btn" />
             </div>
           }>
             <LoginForm />
@@ -167,13 +175,20 @@ export default function LoginPage() {
       <style jsx>{`
         .login-page {
           min-height: 100vh;
+          min-height: 100dvh;
           background: #080c14;
           display: flex;
           align-items: center;
           justify-content: center;
-          padding: 2rem;
+          padding: 1.5rem;
           position: relative;
           overflow: hidden;
+          opacity: 0;
+          transition: opacity 0.3s ease;
+        }
+
+        .login-page.mounted {
+          opacity: 1;
         }
 
         .bg-gradient {
@@ -201,30 +216,30 @@ export default function LoginPage() {
         }
 
         .glow-1 {
-          width: 400px;
-          height: 400px;
+          width: 300px;
+          height: 300px;
           background: linear-gradient(135deg, #2563eb, #7c3aed);
-          top: -200px;
-          right: -100px;
+          top: -150px;
+          right: -50px;
         }
 
         .glow-2 {
-          width: 300px;
-          height: 300px;
+          width: 250px;
+          height: 250px;
           background: linear-gradient(135deg, #7c3aed, #2563eb);
-          bottom: -150px;
-          left: -100px;
+          bottom: -125px;
+          left: -50px;
           animation-delay: -10s;
         }
 
         @keyframes float {
           0%, 100% { transform: translate(0, 0) scale(1); }
-          50% { transform: translate(30px, 30px) scale(1.1); }
+          50% { transform: translate(20px, 20px) scale(1.05); }
         }
 
         .login-container {
           width: 100%;
-          max-width: 420px;
+          max-width: 400px;
           position: relative;
           z-index: 1;
         }
@@ -233,25 +248,26 @@ export default function LoginPage() {
           display: flex;
           align-items: center;
           justify-content: center;
-          gap: 1rem;
+          gap: 0.875rem;
           text-decoration: none;
-          margin-bottom: 2rem;
+          margin-bottom: 1.5rem;
         }
 
         .brand-mark {
-          width: 52px;
-          height: 52px;
+          width: 44px;
+          height: 44px;
           background: linear-gradient(135deg, #2563eb 0%, #7c3aed 100%);
-          border-radius: 14px;
+          border-radius: 12px;
           display: flex;
           align-items: center;
           justify-content: center;
           font-weight: 700;
-          font-size: 1.5rem;
+          font-size: 1.25rem;
           color: #fff;
           position: relative;
           overflow: hidden;
-          box-shadow: 0 8px 32px rgba(37, 99, 235, 0.3);
+          box-shadow: 0 8px 24px rgba(37, 99, 235, 0.3);
+          flex-shrink: 0;
         }
 
         .brand-shine {
@@ -268,36 +284,36 @@ export default function LoginPage() {
         .brand-name {
           color: #fff;
           font-weight: 600;
-          font-size: 1.25rem;
+          font-size: 1.125rem;
           line-height: 1.2;
         }
 
         .brand-tagline {
-          font-size: 0.75rem;
+          font-size: 0.6875rem;
           color: #64748b;
           text-transform: uppercase;
           letter-spacing: 0.1em;
         }
 
         .login-card {
-          background: linear-gradient(180deg, rgba(15, 23, 42, 0.9) 0%, rgba(15, 23, 42, 0.95) 100%);
+          background: rgba(15, 23, 42, 0.9);
           border: 1px solid rgba(255, 255, 255, 0.08);
-          border-radius: 20px;
-          padding: 2rem;
+          border-radius: 16px;
+          padding: 1.5rem;
           backdrop-filter: blur(20px);
-          box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+          box-shadow: 0 20px 40px -12px rgba(0, 0, 0, 0.5);
         }
 
         .card-header {
           text-align: center;
-          margin-bottom: 2rem;
+          margin-bottom: 1.5rem;
         }
 
         .card-header h1 {
           color: #fff;
-          font-size: 1.75rem;
+          font-size: 1.5rem;
           font-weight: 700;
-          margin-bottom: 0.5rem;
+          margin-bottom: 0.375rem;
           background: linear-gradient(135deg, #fff 0%, #94a3b8 100%);
           -webkit-background-clip: text;
           -webkit-text-fill-color: transparent;
@@ -306,22 +322,22 @@ export default function LoginPage() {
 
         .card-header p {
           color: #64748b;
-          font-size: 0.9375rem;
+          font-size: 0.875rem;
         }
 
         .login-footer {
-          margin-top: 1.5rem;
-          padding-top: 1.5rem;
+          margin-top: 1.25rem;
+          padding-top: 1.25rem;
           border-top: 1px solid rgba(255, 255, 255, 0.06);
         }
 
         .divider {
           text-align: center;
-          margin-bottom: 1rem;
+          margin-bottom: 0.75rem;
         }
 
         .divider span {
-          font-size: 0.75rem;
+          font-size: 0.6875rem;
           color: #475569;
           text-transform: uppercase;
           letter-spacing: 0.05em;
@@ -330,17 +346,17 @@ export default function LoginPage() {
         .demo-creds {
           display: flex;
           justify-content: center;
-          gap: 0.75rem;
+          gap: 0.5rem;
           flex-wrap: wrap;
         }
 
         .demo-creds code {
-          padding: 0.375rem 0.75rem;
+          padding: 0.3rem 0.625rem;
           background: rgba(255, 255, 255, 0.05);
           border: 1px solid rgba(255, 255, 255, 0.08);
           border-radius: 6px;
           color: #94a3b8;
-          font-size: 0.8125rem;
+          font-size: 0.75rem;
           font-family: ui-monospace, monospace;
         }
 
@@ -351,8 +367,8 @@ export default function LoginPage() {
           gap: 0.5rem;
           color: #64748b;
           text-decoration: none;
-          font-size: 0.875rem;
-          margin-top: 2rem;
+          font-size: 0.8125rem;
+          margin-top: 1.5rem;
           transition: all 0.2s;
         }
 
@@ -360,12 +376,90 @@ export default function LoginPage() {
           color: #94a3b8;
         }
 
-        .back-link:hover svg {
+        .back-link:hover :global(svg) {
           transform: translateX(-3px);
         }
 
-        .back-link svg {
+        .back-link :global(svg) {
           transition: transform 0.2s;
+        }
+
+        .login-form-skeleton {
+          padding: 0.5rem 0;
+        }
+
+        .skeleton-field {
+          height: 72px;
+          background: rgba(255, 255, 255, 0.03);
+          border-radius: 10px;
+          margin-bottom: 1rem;
+          animation: pulse 1.5s ease-in-out infinite;
+        }
+
+        .skeleton-btn {
+          height: 48px;
+          background: rgba(37, 99, 235, 0.2);
+          border-radius: 10px;
+          animation: pulse 1.5s ease-in-out infinite;
+        }
+
+        @keyframes pulse {
+          0%, 100% { opacity: 1; }
+          50% { opacity: 0.5; }
+        }
+
+        @media (max-width: 480px) {
+          .login-page {
+            padding: 1rem;
+            align-items: flex-start;
+            padding-top: 15vh;
+          }
+
+          .login-container {
+            max-width: 100%;
+          }
+
+          .login-brand {
+            margin-bottom: 1.25rem;
+          }
+
+          .brand-mark {
+            width: 40px;
+            height: 40px;
+            font-size: 1.125rem;
+          }
+
+          .brand-name {
+            font-size: 1rem;
+          }
+
+          .login-card {
+            padding: 1.25rem;
+            border-radius: 14px;
+          }
+
+          .card-header h1 {
+            font-size: 1.375rem;
+          }
+
+          .demo-creds {
+            flex-direction: column;
+            align-items: center;
+          }
+
+          .glow-1 {
+            width: 200px;
+            height: 200px;
+            top: -100px;
+            right: -50px;
+          }
+
+          .glow-2 {
+            width: 180px;
+            height: 180px;
+            bottom: -90px;
+            left: -50px;
+          }
         }
       `}</style>
 
@@ -373,14 +467,14 @@ export default function LoginPage() {
         .login-error {
           display: flex;
           align-items: center;
-          gap: 0.75rem;
+          gap: 0.625rem;
           background: rgba(239, 68, 68, 0.1);
           border: 1px solid rgba(239, 68, 68, 0.2);
           color: #f87171;
-          padding: 0.875rem 1rem;
+          padding: 0.75rem;
           border-radius: 10px;
-          font-size: 0.875rem;
-          margin-bottom: 1.5rem;
+          font-size: 0.8125rem;
+          margin-bottom: 1.25rem;
           animation: shake 0.4s ease;
         }
 
@@ -390,55 +484,55 @@ export default function LoginPage() {
           75% { transform: translateX(5px); }
         }
 
-        .form-group {
-          margin-bottom: 1.25rem;
+        .login-form .form-group {
+          margin-bottom: 1rem;
         }
 
-        .form-group label {
+        .login-form .form-group label {
           display: block;
           color: #94a3b8;
-          font-size: 0.875rem;
+          font-size: 0.8125rem;
           font-weight: 500;
-          margin-bottom: 0.5rem;
+          margin-bottom: 0.375rem;
         }
 
-        .input-wrapper {
+        .login-form .input-wrapper {
           position: relative;
           display: flex;
           align-items: center;
         }
 
-        .input-icon {
+        .login-form .input-icon {
           position: absolute;
-          left: 1rem;
+          left: 0.875rem;
           color: #64748b;
           pointer-events: none;
           transition: color 0.2s;
         }
 
-        .input-wrapper:focus-within .input-icon {
+        .login-form .input-wrapper:focus-within .input-icon {
           color: #3b82f6;
         }
 
-        .form-group input {
+        .login-form .form-group input {
           width: 100%;
-          padding: 0.875rem 1rem 0.875rem 2.875rem;
+          padding: 0.75rem 0.875rem 0.75rem 2.625rem;
           background: rgba(255, 255, 255, 0.03);
           border: 1px solid rgba(255, 255, 255, 0.08);
           border-radius: 10px;
           color: #fff;
-          font-size: 1rem;
+          font-size: 0.9375rem;
           transition: all 0.2s;
         }
 
-        .form-group input:focus {
+        .login-form .form-group input:focus {
           outline: none;
           border-color: #3b82f6;
           background: rgba(59, 130, 246, 0.05);
-          box-shadow: 0 0 0 4px rgba(59, 130, 246, 0.1);
+          box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
         }
 
-        .form-group input::placeholder {
+        .login-form .form-group input::placeholder {
           color: #475569;
         }
 
@@ -447,22 +541,22 @@ export default function LoginPage() {
           display: flex;
           align-items: center;
           justify-content: center;
-          gap: 0.75rem;
-          padding: 1rem 1.5rem;
+          gap: 0.625rem;
+          padding: 0.875rem 1.25rem;
           background: linear-gradient(135deg, #2563eb 0%, #7c3aed 100%);
           border: none;
           border-radius: 10px;
           color: #fff;
-          font-size: 1rem;
+          font-size: 0.9375rem;
           font-weight: 600;
           cursor: pointer;
           transition: all 0.2s;
-          margin-top: 0.5rem;
+          margin-top: 0.25rem;
         }
 
         .login-btn:hover:not(:disabled) {
           transform: translateY(-2px);
-          box-shadow: 0 8px 24px rgba(37, 99, 235, 0.4);
+          box-shadow: 0 8px 20px rgba(37, 99, 235, 0.4);
         }
 
         .login-btn:active:not(:disabled) {
@@ -483,8 +577,8 @@ export default function LoginPage() {
         }
 
         .spinner {
-          width: 18px;
-          height: 18px;
+          width: 16px;
+          height: 16px;
           border: 2px solid rgba(255, 255, 255, 0.3);
           border-top-color: #fff;
           border-radius: 50%;
@@ -493,6 +587,12 @@ export default function LoginPage() {
 
         @keyframes spin {
           to { transform: rotate(360deg); }
+        }
+
+        @media (max-width: 480px) {
+          .login-form .form-group input {
+            font-size: 16px; /* Prevents iOS zoom on focus */
+          }
         }
       `}</style>
     </div>

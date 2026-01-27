@@ -470,14 +470,35 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
 
           .admin-header {
             padding: 0 1rem;
+            height: 64px;
           }
 
           .admin-view-site span {
             display: none;
           }
 
+          .admin-view-site {
+            padding: 0.5rem;
+            min-width: 44px;
+            min-height: 44px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+          }
+
           .page-title {
-            font-size: 1.125rem;
+            font-size: 1.0625rem;
+          }
+
+          .admin-menu-btn {
+            min-width: 44px;
+            min-height: 44px;
+          }
+        }
+
+        @media (max-width: 480px) {
+          .admin-content {
+            padding: 0.875rem;
           }
         }
       `}</style>
