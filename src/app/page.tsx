@@ -763,7 +763,7 @@ export default function Home() {
         <div className="footer-main">
           <div className="footer-about">
             <Link href="/" className="footer-brand-link">
-              <img src="/logo.png" alt="Apis Digitech" className="footer-logo" />
+              <img src="/logo-white.png" alt="Apis Digitech" className="footer-logo" />
             </Link>
             <p>
               Equipping businesses with the best SEO and AI optimization tools. Traditional SEO meets cutting-edge AI strategies for maximum digital growth.

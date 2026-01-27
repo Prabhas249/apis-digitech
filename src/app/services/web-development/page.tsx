@@ -239,7 +239,7 @@ export default function WebDevelopmentServicePage() {
         <div className="footer-main">
           <div className="footer-about">
             <Link href="/" className="footer-brand-link">
-              <img src="/logo.png" alt="Apis Digitech" className="footer-logo" />
+              <img src="/logo-white.png" alt="Apis Digitech" className="footer-logo" />
             </Link>
             <p>
               Apis Digitech is all about equipping businesses with the best tools to help them prepare for the ride ahead.
