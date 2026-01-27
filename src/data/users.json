@@ -1,0 +1,12 @@
+{
+  "users": [
+    {
+      "_id": "admin-1",
+      "email": "admin@apisdigitech.com",
+      "password": "$2b$10$chdis6NB1BqD5SHhqhGE4unNjMZ4hVVlDlIs0lRDHoIJy/iv3aLNG",
+      "name": "Admin",
+      "role": "admin",
+      "createdAt": "2026-01-01T00:00:00.000Z"
+    }
+  ]
+}

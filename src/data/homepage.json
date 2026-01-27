@@ -1,0 +1,80 @@
+{
+  "hero": {
+    "title": "Dominate Search. Lead Your Industry.",
+    "subtitle": "We help businesses achieve #1 rankings through strategic SEO, AEO, and GEO optimization. Get found by customers searching for your services.",
+    "ctaText": "Get Free Audit",
+    "ctaLink": "/contact",
+    "secondaryCtaText": "View Pricing",
+    "secondaryCtaLink": "/pricing"
+  },
+  "stats": [
+    { "value": "500+", "label": "Clients Served" },
+    { "value": "340%", "label": "Avg Traffic Growth" },
+    { "value": "94%", "label": "Client Retention" },
+    { "value": "50+", "label": "5-Star Reviews" }
+  ],
+  "services": {
+    "title": "Our Services",
+    "subtitle": "Comprehensive digital marketing solutions to grow your online presence",
+    "items": [
+      {
+        "title": "SEO",
+        "description": "Dominate search rankings with our proven SEO strategies",
+        "link": "/services/seo"
+      },
+      {
+        "title": "AEO",
+        "description": "Get featured in answer boxes and voice search results",
+        "link": "/services/aeo"
+      },
+      {
+        "title": "GEO",
+        "description": "Be cited by AI platforms like ChatGPT and Perplexity",
+        "link": "/services/geo"
+      },
+      {
+        "title": "Link Building",
+        "description": "Build authority with high-quality backlinks",
+        "link": "/services/link-building"
+      },
+      {
+        "title": "Content Marketing",
+        "description": "Engage your audience with strategic content",
+        "link": "/services/content-marketing"
+      },
+      {
+        "title": "Local SEO",
+        "description": "Dominate local search and the map pack",
+        "link": "/services/seo"
+      }
+    ]
+  },
+  "whyUs": {
+    "title": "Why Choose Apis Digitech?",
+    "subtitle": "We deliver results, not excuses",
+    "items": [
+      {
+        "title": "Data-Driven Approach",
+        "description": "Every strategy is backed by comprehensive data analysis"
+      },
+      {
+        "title": "Transparent Reporting",
+        "description": "Real-time dashboards and detailed monthly reports"
+      },
+      {
+        "title": "Dedicated Team",
+        "description": "Your own account manager and specialist team"
+      },
+      {
+        "title": "Proven Results",
+        "description": "340% average traffic increase across all clients"
+      }
+    ]
+  },
+  "cta": {
+    "title": "Ready to Grow Your Business?",
+    "subtitle": "Get a free SEO audit and discover your growth potential",
+    "buttonText": "Get Free Audit",
+    "buttonLink": "/contact"
+  }
+}

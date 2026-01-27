@@ -2,7 +2,7 @@
 
 import Link from 'next/link';
 import { useEffect, useState } from 'react';
-import type { Review } from '@/lib/sanity.types';
+import type { Review } from '@/lib/data';
 
 interface ReviewsClientProps {
   reviews: Review[];

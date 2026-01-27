@@ -2,7 +2,7 @@
 
 import Link from 'next/link';
 import { useEffect, useState } from 'react';
-import type { BlogPost } from '@/lib/sanity.types';
+import type { BlogPost } from '@/lib/data';
 
 interface BlogClientProps {
   posts: BlogPost[];
@@ -184,7 +184,7 @@ export default function BlogClient({ posts, featuredPost, categories }: BlogClie
 
         {/* Featured Post */}
         {showFeaturedPost && featuredPost && (
-          <Link href={`/blog/${featuredPost.slug?.current || 'article'}`} className="featured-post">
+          <Link href={`/blog/${featuredPost.slug || 'article'}`} className="featured-post">
             <div className="featured-post-image">
               <div className="featured-post-image-gradient gradient-1"></div>
               <span className="featured-badge">Featured</span>
@@ -211,7 +211,7 @@ export default function BlogClient({ posts, featuredPost, categories }: BlogClie
         {filteredPosts.length > 0 ? (
           <div className="blog-grid">
             {filteredPosts.map((post, i) => (
-              <Link key={post._id} href={`/blog/${post.slug?.current || 'article'}`} className="blog-card">
+              <Link key={post._id} href={`/blog/${post.slug || 'article'}`} className="blog-card">
                 <div className="blog-card-image">
                   <div className={`blog-card-image-gradient gradient-${(i % 3) + 1}`}></div>
                 </div>

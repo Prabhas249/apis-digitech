@@ -2,7 +2,7 @@
 
 import Link from 'next/link';
 import { useEffect, useState } from 'react';
-import type { PricingPlan } from '@/lib/sanity.types';
+import type { PricingPlan } from '@/lib/data';
 
 interface PricingClientProps {
   allPricing: PricingPlan[];

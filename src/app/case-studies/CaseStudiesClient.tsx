@@ -2,7 +2,7 @@
 
 import Link from 'next/link';
 import { useEffect, useState } from 'react';
-import type { CaseStudy } from '@/lib/sanity.types';
+import type { CaseStudy } from '@/lib/data';
 
 interface CaseStudiesClientProps {
   caseStudies: CaseStudy[];
@@ -95,7 +95,7 @@ export default function CaseStudiesClient({ caseStudies, stats }: CaseStudiesCli
       <section className="case-studies-section">
         <div className="case-studies-grid">
           {caseStudies.map((study) => (
-            <Link key={study._id} href={`/case-studies/${study.slug?.current || 'case-study'}`} className="case-study-card">
+            <Link key={study._id} href={`/case-studies/${study.slug || 'case-study'}`} className="case-study-card">
               <div className="case-study-card-header">
                 <span className="case-study-industry">{study.industry}</span>
                 <span className="case-study-timeline">{study.timeline}</span>

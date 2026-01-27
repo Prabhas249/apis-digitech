@@ -1,0 +1,140 @@
+{
+  "stats": [
+    { "value": "4.9/5", "label": "Average Rating" },
+    { "value": "500+", "label": "Happy Clients" },
+    { "value": "94%", "label": "Retention Rate" },
+    { "value": "50+", "label": "Five Star Reviews" }
+  ],
+  "reviews": [
+    {
+      "_id": "review-1",
+      "name": "John D.",
+      "role": "CEO",
+      "company": "TechStart",
+      "rating": 5,
+      "text": "Apis Digitech transformed our online presence. From day one, they understood our goals and delivered results that exceeded our expectations. Our visibility skyrocketed and we're now industry leaders in search.",
+      "result": "400% visibility increase",
+      "featured": true
+    },
+    {
+      "_id": "review-2",
+      "name": "Sarah M.",
+      "role": "Marketing Director",
+      "company": "Growth Dynamics",
+      "rating": 5,
+      "text": "The ROI we've seen is incredible. Every dollar invested with Apis Digitech has come back tenfold. Their strategic approach to SEO and content marketing is unmatched in the industry.",
+      "result": "10x ROI",
+      "featured": true
+    },
+    {
+      "_id": "review-3",
+      "name": "Mike R.",
+      "role": "Founder",
+      "company": "LocalShop",
+      "rating": 5,
+      "text": "Best SEO investment we've made. As a local business owner, I was skeptical about digital marketing, but Apis Digitech proved me wrong. They delivered tangible results within weeks.",
+      "result": "250% local traffic increase",
+      "featured": true
+    },
+    {
+      "_id": "review-4",
+      "name": "Lisa K.",
+      "role": "E-commerce Manager",
+      "company": "StyleHub",
+      "rating": 5,
+      "text": "Traffic increased by 300% after working with Apis Digitech. Our online store went from struggling to thriving. Their e-commerce SEO expertise is second to none.",
+      "result": "300% traffic increase",
+      "featured": false
+    },
+    {
+      "_id": "review-5",
+      "name": "Sarah Mitchell",
+      "role": "CMO",
+      "company": "TechFlow Solutions",
+      "rating": 5,
+      "text": "Apis Digitech transformed our SEO strategy completely. Within 4 months, we went from page 5 to page 1 for our main keywords. Our organic traffic increased by 340% and leads doubled. Their team is responsive, knowledgeable, and truly cares about our success.",
+      "result": "340% traffic increase",
+      "featured": false
+    },
+    {
+      "_id": "review-6",
+      "name": "Marcus Chen",
+      "role": "Founder",
+      "company": "GrowthStack",
+      "rating": 5,
+      "text": "Their SEO expertise combined with AI optimization knowledge is unmatched. We now appear in AI-generated answers across multiple platforms including ChatGPT and Perplexity. The ROI has been incredible - we've seen a 5x return on our investment.",
+      "result": "5x ROI",
+      "featured": false
+    },
+    {
+      "_id": "review-7",
+      "name": "Jennifer Adams",
+      "role": "Director of Marketing",
+      "company": "Velocity Commerce",
+      "rating": 5,
+      "text": "Best SEO agency we've worked with. They delivered exactly what they promised - more traffic, better rankings, and most importantly, more conversions. Our e-commerce sales from organic search increased by 280% in just 6 months.",
+      "result": "280% sales increase",
+      "featured": false
+    },
+    {
+      "_id": "review-8",
+      "name": "David Park",
+      "role": "CEO",
+      "company": "HealthTech Pro",
+      "rating": 5,
+      "text": "Working with Apis Digitech has been a game-changer for our healthcare startup. They understood the complexity of our industry and developed a strategy that helped us rank for highly competitive medical keywords. Highly recommended!",
+      "result": "Page 1 for 25+ keywords",
+      "featured": false
+    },
+    {
+      "_id": "review-9",
+      "name": "Emily Rodriguez",
+      "role": "Marketing Manager",
+      "company": "LegalEase",
+      "rating": 5,
+      "text": "The team at Apis Digitech is exceptional. Their GEO service helped us get cited in AI-generated legal advice, bringing in a completely new source of qualified leads. Their communication is excellent and reporting is thorough.",
+      "result": "150% lead increase",
+      "featured": false
+    },
+    {
+      "_id": "review-10",
+      "name": "Michael Thompson",
+      "role": "Owner",
+      "company": "Local Fitness Hub",
+      "rating": 5,
+      "text": "As a local business, we needed someone who understood local SEO. Apis Digitech optimized our Google Business Profile and local citations. We now dominate the local pack for fitness-related searches in our area.",
+      "result": "#1 in local pack",
+      "featured": false
+    },
+    {
+      "_id": "review-11",
+      "name": "Amanda Foster",
+      "role": "VP of Growth",
+      "company": "SaaS Metrics",
+      "rating": 5,
+      "text": "Their AEO strategy is brilliant. We're now featured in answer boxes for dozens of industry-related questions. This has positioned us as the go-to authority in our niche. Can't recommend them enough.",
+      "result": "40+ featured snippets",
+      "featured": false
+    },
+    {
+      "_id": "review-12",
+      "name": "Robert Kim",
+      "role": "Digital Director",
+      "company": "Fashion Forward",
+      "rating": 5,
+      "text": "Apis Digitech helped us recover from a significant Google algorithm update that had tanked our rankings. Within 3 months, we not only recovered but exceeded our previous organic traffic levels. True SEO experts.",
+      "result": "Full recovery + 45% growth",
+      "featured": false
+    },
+    {
+      "_id": "review-13",
+      "name": "Lisa Wang",
+      "role": "COO",
+      "company": "FinServe Partners",
+      "rating": 5,
+      "text": "In the competitive finance industry, standing out in search is crucial. Apis Digitech developed a comprehensive content and link building strategy that established us as an authority. Our domain authority increased by 25 points.",
+      "result": "DA increased by 25",
+      "featured": false
+    }
+  ]
+}

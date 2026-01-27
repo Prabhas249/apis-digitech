@@ -1,0 +1,25 @@
+{
+  "site": {
+    "name": "Apis Digitech",
+    "tagline": "SEO, AEO & GEO Experts",
+    "description": "We help businesses dominate search rankings through strategic SEO, AEO, and GEO optimization.",
+    "url": "https://apisdigitech.com"
+  },
+  "contact": {
+    "email": "hello@apisdigitech.com",
+    "phone": "+1 (555) 123-4567",
+    "address": "123 Digital Ave, Tech City, TC 12345"
+  },
+  "social": {
+    "twitter": "https://twitter.com/apisdigitech",
+    "linkedin": "https://linkedin.com/company/apisdigitech",
+    "facebook": "https://facebook.com/apisdigitech",
+    "instagram": "https://instagram.com/apisdigitech"
+  },
+  "seo": {
+    "defaultTitle": "Apis Digitech - SEO, AEO & GEO Experts",
+    "titleTemplate": "%s | Apis Digitech",
+    "defaultDescription": "We help businesses achieve #1 rankings through strategic SEO, AEO, and GEO optimization. Get found by customers searching for your services.",
+    "defaultKeywords": ["SEO", "AEO", "GEO", "digital marketing", "link building", "content marketing"]
+  }
+}

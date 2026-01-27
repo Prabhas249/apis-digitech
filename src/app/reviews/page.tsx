@@ -1,7 +1,5 @@
-import { getAllReviews } from '@/lib/sanity.fetch';
-import { fallbackReviews, reviewStats } from '@/lib/data/reviews';
+import { getAllReviews, getReviewStats } from '@/lib/data';
 import ReviewsClient from './ReviewsClient';
-import type { Review } from '@/lib/sanity.types';
 
 export const metadata = {
   title: 'Client Reviews & Testimonials | Apis Digitech',
@@ -9,13 +7,10 @@ export const metadata = {
 };
 
 export default async function ReviewsPage() {
-  // Fetch from Sanity
-  const sanityReviews = await getAllReviews();
+  const [reviews, stats] = await Promise.all([
+    getAllReviews(),
+    getReviewStats(),
+  ]);
 
-  // Use Sanity data if available, otherwise use fallback
-  const reviews: Review[] = sanityReviews.length > 0
-    ? sanityReviews
-    : fallbackReviews as Review[];
-
-  return <ReviewsClient reviews={reviews} stats={reviewStats} />;
+  return <ReviewsClient reviews={reviews} stats={stats} />;
 }

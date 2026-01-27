@@ -1,7 +1,5 @@
-import { getAllCaseStudies } from '@/lib/sanity.fetch';
-import { fallbackCaseStudies, caseStudyStats } from '@/lib/data/case-studies';
+import { getAllCaseStudies, getCaseStudyStats } from '@/lib/data';
 import CaseStudiesClient from './CaseStudiesClient';
-import type { CaseStudy } from '@/lib/sanity.types';
 
 export const metadata = {
   title: 'Case Studies - Success Stories | Apis Digitech',
@@ -9,13 +7,10 @@ export const metadata = {
 };
 
 export default async function CaseStudiesPage() {
-  // Fetch from Sanity
-  const sanityCaseStudies = await getAllCaseStudies();
+  const [caseStudies, stats] = await Promise.all([
+    getAllCaseStudies(),
+    getCaseStudyStats(),
+  ]);
 
-  // Use Sanity data if available, otherwise use fallback
-  const caseStudies: CaseStudy[] = sanityCaseStudies.length > 0
-    ? sanityCaseStudies
-    : fallbackCaseStudies as CaseStudy[];
-
-  return <CaseStudiesClient caseStudies={caseStudies} stats={caseStudyStats} />;
+  return <CaseStudiesClient caseStudies={caseStudies} stats={stats} />;
 }
