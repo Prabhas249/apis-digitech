@@ -232,29 +232,41 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
         }
 
         .nav-section-label {
-          padding: 1.25rem 1.5rem 0.5rem;
+          padding: 1.5rem 1.25rem 0.75rem;
           font-size: 0.6875rem;
-          font-weight: 600;
+          font-weight: 700;
           text-transform: uppercase;
-          letter-spacing: 0.1em;
+          letter-spacing: 0.12em;
           color: #475569;
+          display: flex;
+          align-items: center;
+          gap: 0.5rem;
+        }
+
+        .nav-section-label::after {
+          content: '';
+          flex: 1;
+          height: 1px;
+          background: linear-gradient(90deg, rgba(71, 85, 105, 0.3), transparent);
         }
 
         .admin-nav {
-          padding: 0 0.75rem 0.5rem;
+          padding: 0 0.75rem 0.75rem;
         }
 
         .admin-nav-item {
           display: flex;
           align-items: center;
-          gap: 0.75rem;
-          padding: 0.75rem 1rem;
+          gap: 0.875rem;
+          padding: 0.875rem 1rem;
           border-radius: 10px;
           color: #94a3b8;
           text-decoration: none;
           font-size: 0.9375rem;
+          font-weight: 500;
+          letter-spacing: -0.01em;
           transition: all 0.2s ease;
-          margin-bottom: 0.25rem;
+          margin-bottom: 0.375rem;
           position: relative;
           animation: fadeIn 0.3s ease forwards;
           opacity: 0;
@@ -266,31 +278,37 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
         }
 
         .nav-icon {
-          width: 36px;
-          height: 36px;
+          width: 38px;
+          height: 38px;
           display: flex;
           align-items: center;
           justify-content: center;
-          border-radius: 8px;
-          background: rgba(255,255,255,0.03);
+          border-radius: 10px;
+          background: rgba(255,255,255,0.04);
+          border: 1px solid rgba(255,255,255,0.04);
           transition: all 0.2s;
         }
 
         .admin-nav-item:hover {
           color: #fff;
+          background: rgba(255,255,255,0.03);
         }
 
         .admin-nav-item:hover .nav-icon {
           background: rgba(255,255,255,0.08);
+          border-color: rgba(255,255,255,0.08);
         }
 
         .admin-nav-item.active {
           color: #fff;
+          background: rgba(59,130,246,0.08);
         }
 
         .admin-nav-item.active .nav-icon {
-          background: linear-gradient(135deg, rgba(37,99,235,0.3), rgba(124,58,237,0.3));
-          color: #60a5fa;
+          background: linear-gradient(135deg, #2563eb, #7c3aed);
+          border-color: transparent;
+          color: #fff;
+          box-shadow: 0 4px 12px rgba(37,99,235,0.3);
         }
 
         .active-indicator {
@@ -299,7 +317,7 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
           top: 50%;
           transform: translateY(-50%);
           width: 3px;
-          height: 24px;
+          height: 28px;
           background: linear-gradient(180deg, #3b82f6, #8b5cf6);
           border-radius: 0 4px 4px 0;
         }

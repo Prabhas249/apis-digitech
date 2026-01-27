@@ -205,28 +205,34 @@ export function Input({ fullWidth = true, ...props }: InputProps) {
       <input className={`admin-input ${fullWidth ? 'full-width' : ''}`} {...props} />
       <style jsx>{`
         .admin-input {
-          padding: 0.75rem 1rem;
-          background: rgba(255, 255, 255, 0.05);
-          border: 1px solid rgba(255, 255, 255, 0.1);
-          border-radius: 8px;
-          color: #fff;
+          padding: 0.875rem 1rem;
+          background: #1e293b;
+          border: 1px solid rgba(255, 255, 255, 0.12);
+          border-radius: 10px;
+          color: #f1f5f9;
           font-size: 16px;
-          transition: all 0.2s;
+          transition: border-color 0.2s, box-shadow 0.2s;
+          caret-color: #3b82f6;
         }
         .admin-input.full-width {
           width: 100%;
         }
+        .admin-input:hover {
+          border-color: rgba(255, 255, 255, 0.2);
+        }
         .admin-input:focus {
           outline: none;
           border-color: #3b82f6;
-          box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.15);
+          box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.2);
+          background: #1e293b;
         }
         .admin-input::placeholder {
-          color: #475569;
+          color: #64748b;
         }
         .admin-input:disabled {
           opacity: 0.5;
           cursor: not-allowed;
+          background: #0f172a;
         }
       `}</style>
     </>
@@ -244,27 +250,32 @@ export function Textarea({ fullWidth = true, ...props }: TextareaProps) {
       <textarea className={`admin-textarea ${fullWidth ? 'full-width' : ''}`} {...props} />
       <style jsx>{`
         .admin-textarea {
-          padding: 0.75rem 1rem;
-          background: rgba(255, 255, 255, 0.05);
-          border: 1px solid rgba(255, 255, 255, 0.1);
-          border-radius: 8px;
-          color: #fff;
+          padding: 0.875rem 1rem;
+          background: #1e293b;
+          border: 1px solid rgba(255, 255, 255, 0.12);
+          border-radius: 10px;
+          color: #f1f5f9;
           font-size: 16px;
           font-family: inherit;
           resize: vertical;
           min-height: 100px;
-          transition: all 0.2s;
+          transition: border-color 0.2s, box-shadow 0.2s;
+          caret-color: #3b82f6;
         }
         .admin-textarea.full-width {
           width: 100%;
         }
+        .admin-textarea:hover {
+          border-color: rgba(255, 255, 255, 0.2);
+        }
         .admin-textarea:focus {
           outline: none;
           border-color: #3b82f6;
-          box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.15);
+          box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.2);
+          background: #1e293b;
         }
         .admin-textarea::placeholder {
-          color: #475569;
+          color: #64748b;
         }
       `}</style>
     </>
@@ -289,14 +300,14 @@ export function Select({ options, fullWidth = true, ...props }: SelectProps) {
       </select>
       <style jsx>{`
         .admin-select {
-          padding: 0.75rem 1rem;
-          background: rgba(255, 255, 255, 0.05);
-          border: 1px solid rgba(255, 255, 255, 0.1);
-          border-radius: 8px;
-          color: #fff;
+          padding: 0.875rem 1rem;
+          background: #1e293b;
+          border: 1px solid rgba(255, 255, 255, 0.12);
+          border-radius: 10px;
+          color: #f1f5f9;
           font-size: 16px;
           cursor: pointer;
-          transition: all 0.2s;
+          transition: border-color 0.2s, box-shadow 0.2s;
           appearance: none;
           background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24' stroke='%2394a3b8'%3E%3Cpath stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M19 9l-7 7-7-7'/%3E%3C/svg%3E");
           background-repeat: no-repeat;
@@ -307,14 +318,18 @@ export function Select({ options, fullWidth = true, ...props }: SelectProps) {
         .admin-select.full-width {
           width: 100%;
         }
+        .admin-select:hover {
+          border-color: rgba(255, 255, 255, 0.2);
+        }
         .admin-select:focus {
           outline: none;
           border-color: #3b82f6;
-          box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.15);
+          box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.2);
         }
         .admin-select option {
           background: #1e293b;
-          color: #fff;
+          color: #f1f5f9;
+          padding: 0.5rem;
         }
       `}</style>
     </>
@@ -1073,18 +1088,23 @@ export function SearchInput({ value, onChange, placeholder = 'Search...' }: Sear
         }
         .search-input {
           width: 100%;
-          padding: 0.75rem 1rem 0.75rem 2.75rem;
-          background: rgba(255, 255, 255, 0.05);
-          border: 1px solid rgba(255, 255, 255, 0.1);
+          padding: 0.875rem 1rem 0.875rem 2.75rem;
+          background: #1e293b;
+          border: 1px solid rgba(255, 255, 255, 0.12);
           border-radius: 10px;
-          color: #fff;
+          color: #f1f5f9;
           font-size: 16px;
-          transition: all 0.2s;
+          transition: border-color 0.2s, box-shadow 0.2s;
+          caret-color: #3b82f6;
+        }
+        .search-input:hover {
+          border-color: rgba(255, 255, 255, 0.2);
         }
         .search-input:focus {
           outline: none;
           border-color: #3b82f6;
-          box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.15);
+          box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.2);
+          background: #1e293b;
         }
         .search-input::placeholder {
           color: #64748b;
