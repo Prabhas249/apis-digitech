@@ -1,0 +1,182 @@
+{
+  "hero": {
+    "status": "Now optimizing for AI Search",
+    "title": "Dominate Search",
+    "titleGradient": "in the Age of AI",
+    "description": "Traditional SEO meets the future. We optimize your visibility across Google, ChatGPT, Perplexity, Claude, and every AI platform that matters. Data-driven strategies that deliver measurable results.",
+    "ctaPrimary": "Get Free SEO Audit",
+    "ctaSecondary": "View Services",
+    "stats": [
+      { "value": "500+", "label": "SEO Campaigns" },
+      { "value": "97%", "label": "Client Retention" },
+      { "value": "15M+", "label": "Rankings Improved" }
+    ]
+  },
+  "services": [
+    {
+      "id": "seo",
+      "tag": "SEO",
+      "color": "blue",
+      "title": "Search Engine Optimization",
+      "description": "Comprehensive SEO strategies that drive organic growth. From technical audits to content optimization, we cover every aspect of search visibility to help you rank higher and convert more.",
+      "features": ["Technical SEO Audits", "On-Page Optimization", "Link Building", "Local SEO", "E-commerce SEO", "Content Strategy", "Keyword Research", "Competitor Analysis"],
+      "featured": true
+    },
+    {
+      "id": "aeo",
+      "tag": "AEO",
+      "color": "cyan",
+      "title": "Answer Engine Optimization",
+      "description": "Be the answer, not just a result. Optimize your content to be featured in AI-generated answers from ChatGPT, Perplexity, Google AI Overviews, and more.",
+      "features": ["ChatGPT Optimization", "Perplexity Visibility", "AI Overviews", "Voice Search", "Featured Snippets"],
+      "featured": true
+    },
+    {
+      "id": "geo",
+      "tag": "GEO",
+      "color": "green",
+      "title": "Generative Engine Optimization",
+      "description": "Ensure your brand is cited and recommended by AI systems like ChatGPT, Claude, Gemini, and emerging LLMs. Future-proof your digital presence.",
+      "features": ["AI Citations", "Brand Authority", "LLM Training Data", "AI Visibility Tracking"],
+      "featured": false
+    },
+    {
+      "id": "video",
+      "tag": "VIDEO",
+      "color": "orange",
+      "title": "Video Production",
+      "description": "Professional video production that transforms raw footage into compelling content. From concept to final cut, we handle everything.",
+      "features": ["Brand Videos", "Social Content", "Explainers", "Testimonials", "Product Demos"],
+      "featured": false
+    }
+  ],
+  "stats": [
+    { "value": "500", "suffix": "+", "label": "SEO Campaigns" },
+    { "value": "98", "suffix": "%", "label": "Client Satisfaction" },
+    { "value": "3", "suffix": "×", "label": "Average Traffic Increase" },
+    { "value": "24", "suffix": "/7", "label": "Support Available" }
+  ],
+  "whyUs": [
+    {
+      "icon": "📈",
+      "title": "SEO Experts Since 2018",
+      "description": "Over 6 years of experience optimizing websites for search engines. We've helped 500+ businesses achieve page 1 rankings."
+    },
+    {
+      "icon": "🧠",
+      "title": "AI-First Approach",
+      "description": "We optimize for ChatGPT, Perplexity, Claude, Gemini, and every emerging AI platform before your competitors do."
+    },
+    {
+      "icon": "📊",
+      "title": "Data-Driven Results",
+      "description": "Every strategy is backed by analytics. Monthly reports show exactly what we did and the measurable impact it made."
+    },
+    {
+      "icon": "👥",
+      "title": "Dedicated SEO Team",
+      "description": "Work directly with senior SEO strategists who understand your business, not junior account managers reading scripts."
+    },
+    {
+      "icon": "💎",
+      "title": "Transparent Pricing",
+      "description": "No hidden fees, no long-term contracts, no surprises. Clear pricing with deliverables spelled out upfront."
+    },
+    {
+      "icon": "⚡",
+      "title": "Rapid Results",
+      "description": "We move fast. Most clients see measurable improvements within the first 30 days of working with us."
+    }
+  ],
+  "testimonials": [
+    {
+      "id": 1,
+      "text": "Apis Digitech transformed our SEO strategy completely. Within 4 months, we went from page 5 to page 1 for our main keywords. Our organic traffic increased by 340% and leads doubled.",
+      "author": "Sarah Mitchell",
+      "role": "CMO at TechFlow Solutions",
+      "avatar": "S",
+      "color": "blue"
+    },
+    {
+      "id": 2,
+      "text": "Their SEO expertise combined with AEO knowledge is unmatched. We now appear in AI-generated answers across multiple platforms. The ROI has been incredible - 5x return on investment.",
+      "author": "Marcus Chen",
+      "role": "Founder at GrowthStack",
+      "avatar": "M",
+      "color": "blue"
+    },
+    {
+      "id": 3,
+      "text": "Best SEO agency we've worked with. They delivered exactly what they promised - more traffic, better rankings, and most importantly, more conversions. Highly recommend their services.",
+      "author": "Jennifer Adams",
+      "role": "Director of Marketing, Velocity",
+      "avatar": "J",
+      "color": "blue"
+    }
+  ],
+  "pricing": [
+    {
+      "id": "starter",
+      "name": "Starter SEO",
+      "description": "Perfect for small businesses getting started with SEO and digital visibility.",
+      "price": 1500,
+      "featured": false,
+      "features": [
+        "Comprehensive SEO Audit",
+        "10 Keywords Optimized",
+        "On-Page SEO Fixes",
+        "Google Search Console Setup",
+        "Monthly Performance Report",
+        "Email Support"
+      ],
+      "cta": "Get Started"
+    },
+    {
+      "id": "growth",
+      "name": "Growth SEO",
+      "description": "For businesses ready to dominate both traditional and AI search results.",
+      "price": 3500,
+      "featured": true,
+      "badge": "Most Popular",
+      "features": [
+        "Everything in Starter",
+        "25 Keywords Optimized",
+        "Technical SEO Optimization",
+        "Link Building (10/month)",
+        "AEO - AI Search Optimization",
+        "Content Strategy & Creation",
+        "Weekly Strategy Calls",
+        "Priority Support"
+      ],
+      "cta": "Get Started"
+    },
+    {
+      "id": "enterprise",
+      "name": "Enterprise SEO",
+      "description": "Full-scale SEO dominance with dedicated team and custom solutions.",
+      "price": 7500,
+      "featured": false,
+      "features": [
+        "Everything in Growth",
+        "Unlimited Keywords",
+        "Link Building (25/month)",
+        "Full GEO Optimization",
+        "Video Production Included",
+        "Dedicated Account Manager",
+        "Custom Integrations",
+        "24/7 Phone Support"
+      ],
+      "cta": "Contact Sales"
+    }
+  ],
+  "cta": {
+    "title": "Ready to dominate search rankings?",
+    "description": "Get a free SEO audit and discover exactly what's holding your website back. No obligations, just actionable insights.",
+    "buttonText": "Get Free SEO Audit",
+    "email": "hello@apisdigitech.com"
+  },
+  "footer": {
+    "description": "Expert SEO services to dominate search rankings. From traditional SEO to cutting-edge AI optimization, we help businesses grow their organic traffic and visibility.",
+    "copyright": "© 2026 Apis Digitech. All rights reserved. Made with precision in Texas, USA."
+  }
+}
