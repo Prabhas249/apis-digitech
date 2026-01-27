@@ -3,15 +3,16 @@
     { "id": "seo", "label": "SEO Packages" },
     { "id": "aeo", "label": "AEO Packages" },
     { "id": "geo", "label": "GEO Packages" },
-    { "id": "local", "label": "Local SEO" }
+    { "id": "local", "label": "Local SEO" },
+    { "id": "web", "label": "Web Development" }
   ],
   "plans": [
     {
       "_id": "seo-1",
       "name": "Starter",
       "category": "seo",
-      "price": "$749",
-      "period": "/month",
+      "price": "Contact Us",
+      "period": "",
       "description": "Perfect for small businesses just getting started with SEO",
       "features": [
         "10 Keywords Optimization",
@@ -28,10 +29,10 @@
     },
     {
       "_id": "seo-2",
-      "name": "Serious",
+      "name": "Growth",
       "category": "seo",
-      "price": "$1,249",
-      "period": "/month",
+      "price": "Contact Us",
+      "period": "",
       "description": "For growing businesses ready to scale their organic presence",
       "features": [
         "25 Keywords Optimization",
@@ -49,10 +50,10 @@
     },
     {
       "_id": "seo-3",
-      "name": "Strategy",
+      "name": "Professional",
       "category": "seo",
-      "price": "$1,749",
-      "period": "/month",
+      "price": "Contact Us",
+      "period": "",
       "description": "Advanced SEO for established businesses seeking dominance",
       "features": [
         "50 Keywords Optimization",
@@ -71,10 +72,10 @@
     },
     {
       "_id": "seo-4",
-      "name": "Steroid",
+      "name": "Enterprise",
       "category": "seo",
-      "price": "$2,999",
-      "period": "/month",
+      "price": "Contact Us",
+      "period": "",
       "description": "Enterprise-level SEO for maximum market domination",
       "features": [
         "Unlimited Keywords",
@@ -95,10 +96,10 @@
     },
     {
       "_id": "aeo-1",
-      "name": "AEO Starter",
+      "name": "Starter",
       "category": "aeo",
-      "price": "$999",
-      "period": "/month",
+      "price": "Contact Us",
+      "period": "",
       "description": "Get started with Answer Engine Optimization",
       "features": [
         "Featured Snippet Targeting",
@@ -113,13 +114,13 @@
     },
     {
       "_id": "aeo-2",
-      "name": "AEO Pro",
+      "name": "Professional",
       "category": "aeo",
-      "price": "$1,799",
-      "period": "/month",
+      "price": "Contact Us",
+      "period": "",
       "description": "Comprehensive AEO for serious visibility",
       "features": [
-        "All AEO Starter Features",
+        "All Starter Features",
         "AI Platform Monitoring",
         "ChatGPT Citation Strategy",
         "Perplexity Optimization",
@@ -133,13 +134,13 @@
     },
     {
       "_id": "aeo-3",
-      "name": "AEO Enterprise",
+      "name": "Enterprise",
       "category": "aeo",
-      "price": "$3,499",
-      "period": "/month",
+      "price": "Contact Us",
+      "period": "",
       "description": "Full-scale AI search dominance",
       "features": [
-        "All AEO Pro Features",
+        "All Professional Features",
         "Multi-Platform AI Coverage",
         "Custom AI Training Data",
         "Brand Voice Optimization",
@@ -153,10 +154,10 @@
     },
     {
       "_id": "geo-1",
-      "name": "GEO Starter",
+      "name": "Starter",
       "category": "geo",
-      "price": "$1,299",
-      "period": "/month",
+      "price": "Contact Us",
+      "period": "",
       "description": "Begin optimizing for generative AI engines",
       "features": [
         "AI Content Audit",
@@ -171,13 +172,13 @@
     },
     {
       "_id": "geo-2",
-      "name": "GEO Pro",
+      "name": "Professional",
       "category": "geo",
-      "price": "$2,299",
-      "period": "/month",
+      "price": "Contact Us",
+      "period": "",
       "description": "Advanced generative engine optimization",
       "features": [
-        "All GEO Starter Features",
+        "All Starter Features",
         "Multi-AI Platform Strategy",
         "E-E-A-T Enhancement",
         "Authority Building",
@@ -191,13 +192,13 @@
     },
     {
       "_id": "geo-3",
-      "name": "GEO Enterprise",
+      "name": "Enterprise",
       "category": "geo",
-      "price": "$4,499",
-      "period": "/month",
+      "price": "Contact Us",
+      "period": "",
       "description": "Complete AI search ecosystem dominance",
       "features": [
-        "All GEO Pro Features",
+        "All Professional Features",
         "Custom AI Strategy",
         "Enterprise Content Plan",
         "Multi-Brand Management",
@@ -211,10 +212,10 @@
     },
     {
       "_id": "local-1",
-      "name": "Local Basic",
+      "name": "Starter",
       "category": "local",
-      "price": "$499",
-      "period": "/month",
+      "price": "Contact Us",
+      "period": "",
       "description": "Essential local SEO for single-location businesses",
       "features": [
         "Google Business Profile Opt",
@@ -229,13 +230,13 @@
     },
     {
       "_id": "local-2",
-      "name": "Local Pro",
+      "name": "Professional",
       "category": "local",
-      "price": "$899",
-      "period": "/month",
+      "price": "Contact Us",
+      "period": "",
       "description": "Comprehensive local visibility strategy",
       "features": [
-        "All Local Basic Features",
+        "All Starter Features",
         "150 Local Citations",
         "Review Generation Campaign",
         "Local Content Strategy",
@@ -249,13 +250,13 @@
     },
     {
       "_id": "local-3",
-      "name": "Multi-Location",
+      "name": "Enterprise",
       "category": "local",
-      "price": "$1,999",
-      "period": "/month",
+      "price": "Contact Us",
+      "period": "",
       "description": "For businesses with multiple locations",
       "features": [
-        "All Local Pro Features",
+        "All Professional Features",
         "Up to 10 Locations",
         "Centralized Dashboard",
         "Location-Specific Strategy",
@@ -263,6 +264,69 @@
         "Franchise SEO Support",
         "Weekly Reporting",
         "Dedicated Local Specialist"
+      ],
+      "popular": false,
+      "order": 3
+    },
+    {
+      "_id": "web-1",
+      "name": "Starter",
+      "category": "web",
+      "price": "Contact Us",
+      "period": "",
+      "description": "Perfect for small businesses needing a web presence",
+      "features": [
+        "5-Page Responsive Website",
+        "Mobile-First Design",
+        "Basic SEO Setup",
+        "Contact Form Integration",
+        "Social Media Links",
+        "1 Month Free Support",
+        "SSL Certificate",
+        "Fast Loading Speed"
+      ],
+      "popular": false,
+      "order": 1
+    },
+    {
+      "_id": "web-2",
+      "name": "Professional",
+      "category": "web",
+      "price": "Contact Us",
+      "period": "",
+      "description": "Full-featured website for growing businesses",
+      "features": [
+        "10-15 Page Website",
+        "Custom UI/UX Design",
+        "Advanced SEO Optimization",
+        "Blog Integration",
+        "CMS Dashboard",
+        "Analytics Integration",
+        "3 Months Free Support",
+        "Performance Optimization",
+        "Email Setup"
+      ],
+      "popular": true,
+      "order": 2
+    },
+    {
+      "_id": "web-3",
+      "name": "Enterprise",
+      "category": "web",
+      "price": "Contact Us",
+      "period": "",
+      "description": "Custom web solutions for large organizations",
+      "features": [
+        "Unlimited Pages",
+        "Custom Web Application",
+        "E-commerce Integration",
+        "Advanced CMS Features",
+        "API Integrations",
+        "Database Setup",
+        "6 Months Free Support",
+        "Dedicated Developer",
+        "24/7 Priority Support",
+        "Custom Analytics Dashboard"
       ],
       "popular": false,
       "order": 3

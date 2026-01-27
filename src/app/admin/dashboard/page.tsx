@@ -229,13 +229,14 @@ export default function DashboardPage() {
           display: flex;
           flex-direction: column;
           padding: 1.25rem;
-          background: #0f172a;
-          border: 1px solid rgba(255,255,255,0.08);
+          background: linear-gradient(145deg, #1e293b 0%, #0f172a 100%);
+          border: 1px solid rgba(255,255,255,0.12);
           border-radius: 14px;
           text-decoration: none;
           transition: all 0.25s ease;
           animation: fadeInUp 0.4s ease forwards;
           opacity: 0;
+          box-shadow: 0 4px 20px rgba(0,0,0,0.3);
         }
 
         @keyframes fadeInUp {
@@ -250,9 +251,10 @@ export default function DashboardPage() {
         }
 
         .stat-card:hover {
-          border-color: rgba(255,255,255,0.15);
+          border-color: rgba(255,255,255,0.2);
           transform: translateY(-3px);
-          box-shadow: 0 12px 32px -8px rgba(0,0,0,0.4);
+          box-shadow: 0 12px 32px -8px rgba(0,0,0,0.5);
+          background: linear-gradient(145deg, #253548 0%, #1e293b 100%);
         }
 
         .stat-icon-wrapper {
@@ -330,10 +332,11 @@ export default function DashboardPage() {
         }
 
         .dashboard-card {
-          background: #0f172a;
-          border: 1px solid rgba(255,255,255,0.08);
+          background: linear-gradient(145deg, #1e293b 0%, #0f172a 100%);
+          border: 1px solid rgba(255,255,255,0.12);
           border-radius: 14px;
           padding: 1.5rem;
+          box-shadow: 0 4px 20px rgba(0,0,0,0.3);
         }
 
         .card-title {

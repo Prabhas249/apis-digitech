@@ -203,6 +203,12 @@ button {
     gap: 10px;
 }
 
+.brand-logo {
+    height: 44px;
+    width: auto;
+    object-fit: contain;
+}
+
 .brand-mark {
     width: 40px;
     height: 40px;
@@ -2751,6 +2757,7 @@ button {
 
 .input-with-icon {
     position: relative;
+    width: 100%;
 }
 
 .input-with-icon svg {
@@ -2760,10 +2767,13 @@ button {
     transform: translateY(-50%);
     color: var(--text-muted);
     pointer-events: none;
+    z-index: 1;
 }
 
 .input-with-icon input {
     padding-left: 44px !important;
+    width: 100%;
+    box-sizing: border-box;
 }
 
 .hero-form-btn {
@@ -3228,6 +3238,13 @@ button {
     align-items: center;
     gap: 10px;
     margin-bottom: 16px;
+}
+
+.footer-logo {
+    height: 40px;
+    width: auto;
+    object-fit: contain;
+    filter: brightness(0) invert(1);
 }
 
 .footer-about p {

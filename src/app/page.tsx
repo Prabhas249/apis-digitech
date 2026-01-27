@@ -40,12 +40,7 @@ export default function Home() {
       <nav className={`nav ${scrolled ? 'scrolled' : ''}`} aria-label="Main navigation">
         <div className="nav-container">
           <Link href="/" className="nav-brand">
-            <div className="brand-mark">
-              <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
-                <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-              </svg>
-            </div>
-            <span className="brand-text">Apis Digitech</span>
+            <img src="/logo.png" alt="Apis Digitech" className="brand-logo" />
           </Link>
 
           {/* Mobile Menu Button */}
@@ -125,6 +120,14 @@ export default function Home() {
                     </svg>
                   </span>
                   Video Editing
+                </Link>
+                <Link href="/services/web-development" className="nav-dropdown-item" onClick={() => setMobileMenuOpen(false)}>
+                  <span className="dropdown-icon">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                      <path d="M16 18l6-6-6-6"/><path d="M8 6l-6 6 6 6"/>
+                    </svg>
+                  </span>
+                  Web Development
                 </Link>
               </div>
               )}
@@ -760,12 +763,7 @@ export default function Home() {
         <div className="footer-main">
           <div className="footer-about">
             <Link href="/" className="footer-brand-link">
-              <div className="brand-mark">
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
-                  <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-                </svg>
-              </div>
-              <span className="brand-text">Apis Digitech</span>
+              <img src="/logo.png" alt="Apis Digitech" className="footer-logo" />
             </Link>
             <p>
               Equipping businesses with the best SEO and AI optimization tools. Traditional SEO meets cutting-edge AI strategies for maximum digital growth.
@@ -798,6 +796,7 @@ export default function Home() {
               <Link href="/services/geo">Generative Engine Optimization</Link>
               <Link href="/services/link-building">Link Building</Link>
               <Link href="/services/content-marketing">Content Marketing</Link>
+              <Link href="/services/web-development">Web Development</Link>
             </div>
           </div>
 
@@ -815,24 +814,18 @@ export default function Home() {
           <div className="footer-column">
             <h4>Contact</h4>
             <div className="footer-contact">
-              <a href="mailto:hello@apisdigitech.com" className="footer-contact-item">
+              <a href="mailto:support@apisdigitech.com" className="footer-contact-item">
                 <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
                   <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
                   <polyline points="22,6 12,13 2,6"/>
                 </svg>
-                <span>hello@apisdigitech.com</span>
-              </a>
-              <a href="tel:+15551234567" className="footer-contact-item">
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                  <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/>
-                </svg>
-                <span>+1 (555) 123-4567</span>
+                <span>support@apisdigitech.com</span>
               </a>
               <div className="footer-contact-item">
                 <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
                   <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/>
                 </svg>
-                <span>Texas, USA</span>
+                <span>30 N Gould St Ste R, Sheridan, WY 82801</span>
               </div>
             </div>
           </div>
