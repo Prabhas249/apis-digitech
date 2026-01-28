@@ -135,6 +135,26 @@
       "text": "In the competitive finance industry, standing out in search is crucial. Apis Digitech developed a comprehensive content and link building strategy that established us as an authority. Our domain authority increased by 25 points.",
       "result": "DA increased by 25",
       "featured": false
+    },
+    {
+      "_id": "review-14",
+      "name": "Chris Patel",
+      "role": "Founder",
+      "company": "QuickServe Restaurants",
+      "rating": 5,
+      "text": "Apis Digitech built us a stunning website from scratch that loads fast and converts visitors into customers. The design is modern, mobile-friendly, and SEO-ready out of the box. Our online orders increased by 200% within the first month of launch.",
+      "result": "200% online order increase",
+      "featured": false
+    },
+    {
+      "_id": "review-15",
+      "name": "Nina Alvarez",
+      "role": "Operations Manager",
+      "company": "Bright Dental Care",
+      "rating": 5,
+      "text": "We needed a professional website with online booking and patient portal integration. Apis Digitech delivered a beautiful, functional site that our patients love. The CMS they built lets us update content without any technical knowledge.",
+      "result": "3x appointment bookings",
+      "featured": false
     }
   ]
 }
