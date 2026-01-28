@@ -25,6 +25,7 @@ export default function PricingClient({ allPricing }: PricingClientProps) {
     { id: 'aeo', label: 'AEO Packages' },
     { id: 'geo', label: 'GEO Packages' },
     { id: 'local', label: 'Local SEO' },
+    { id: 'web', label: 'Web Development' },
   ];
 
   const getCurrentPricing = () => {

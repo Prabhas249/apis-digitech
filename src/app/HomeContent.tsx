@@ -486,6 +486,24 @@ export default function HomeContent({ data }: { data: HomepageData }) {
               </svg>
             </span>
           </Link>
+
+          <Link href="/services/web-development" className="service-box">
+            <div className="service-box-icon">
+              <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
+                <path d="M16 18l6-6-6-6"/><path d="M8 6l-6 6 6 6"/>
+              </svg>
+            </div>
+            <h3 className="service-box-title">Web Development</h3>
+            <p className="service-box-desc">
+              Custom, high-performance websites built with modern tech. Mobile-first design, SEO-ready, and optimized to convert.
+            </p>
+            <span className="service-box-link">
+              Learn More
+              <svg width="14" height="14" viewBox="0 0 16 16" fill="none">
+                <path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+              </svg>
+            </span>
+          </Link>
         </div>
       </section>
 
