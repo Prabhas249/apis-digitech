@@ -1,14 +1,11 @@
 'use client';
 
-import { Suspense, useState, useEffect } from 'react';
-import { useRouter, useSearchParams } from 'next/navigation';
+import { useState } from 'react';
+import { useRouter } from 'next/navigation';
 import Link from 'next/link';
 
-function LoginForm() {
+export default function LoginPage() {
   const router = useRouter();
-  const searchParams = useSearchParams();
-  const redirect = searchParams.get('redirect') || '/admin/dashboard';
-
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [error, setError] = useState('');
@@ -34,7 +31,7 @@ function LoginForm() {
         return;
       }
 
-      router.push(redirect);
+      router.push('/admin/dashboard');
     } catch {
       setError('Something went wrong');
       setLoading(false);
@@ -42,88 +39,8 @@ function LoginForm() {
   };
 
   return (
-    <form onSubmit={handleSubmit} className="login-form">
-      {error && (
-        <div className="login-error">
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-            <circle cx="12" cy="12" r="10" />
-            <path d="M12 8v4M12 16h.01" />
-          </svg>
-          {error}
-        </div>
-      )}
-
-      <div className="form-group">
-        <label htmlFor="email">Email Address</label>
-        <div className="input-wrapper">
-          <svg className="input-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-            <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" />
-            <polyline points="22,6 12,13 2,6" />
-          </svg>
-          <input
-            id="email"
-            type="email"
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
-            placeholder="admin@apisdigitech.com"
-            required
-            autoComplete="email"
-          />
-        </div>
-      </div>
-
-      <div className="form-group">
-        <label htmlFor="password">Password</label>
-        <div className="input-wrapper">
-          <svg className="input-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-            <rect x="3" y="11" width="18" height="11" rx="2" ry="2" />
-            <path d="M7 11V7a5 5 0 0110 0v4" />
-          </svg>
-          <input
-            id="password"
-            type="password"
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
-            placeholder="Enter your password"
-            required
-            autoComplete="current-password"
-          />
-        </div>
-      </div>
-
-      <button type="submit" className="login-btn" disabled={loading}>
-        {loading ? (
-          <>
-            <span className="spinner" />
-            Signing in...
-          </>
-        ) : (
-          <>
-            Sign In
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-              <path d="M5 12h14M12 5l7 7-7 7" />
-            </svg>
-          </>
-        )}
-      </button>
-    </form>
-  );
-}
-
-export default function LoginPage() {
-  const [mounted, setMounted] = useState(false);
-
-  useEffect(() => {
-    setMounted(true);
-  }, []);
-
-  return (
-    <div className={`login-page ${mounted ? 'mounted' : ''}`}>
-      {/* Animated background */}
+    <div className="login-page">
       <div className="bg-gradient" />
-      <div className="bg-grid" />
-      <div className="bg-glow glow-1" />
-      <div className="bg-glow glow-2" />
 
       <div className="login-container">
         <Link href="/" className="login-brand">
@@ -143,24 +60,74 @@ export default function LoginPage() {
             <p>Sign in to manage your content</p>
           </div>
 
-          <Suspense fallback={
-            <div className="login-form-skeleton">
-              <div className="skeleton-field" />
-              <div className="skeleton-field" />
-              <div className="skeleton-btn" />
+          <form onSubmit={handleSubmit} className="login-form">
+            {error && (
+              <div className="login-error">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                  <circle cx="12" cy="12" r="10" />
+                  <path d="M12 8v4M12 16h.01" />
+                </svg>
+                {error}
+              </div>
+            )}
+
+            <div className="form-group">
+              <label htmlFor="email">Email Address</label>
+              <div className="input-wrapper">
+                <svg className="input-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                  <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" />
+                  <polyline points="22,6 12,13 2,6" />
+                </svg>
+                <input
+                  id="email"
+                  type="email"
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
+                  placeholder="admin@apisdigitech.com"
+                  required
+                  autoComplete="email"
+                />
+              </div>
             </div>
-          }>
-            <LoginForm />
-          </Suspense>
+
+            <div className="form-group">
+              <label htmlFor="password">Password</label>
+              <div className="input-wrapper">
+                <svg className="input-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                  <rect x="3" y="11" width="18" height="11" rx="2" ry="2" />
+                  <path d="M7 11V7a5 5 0 0110 0v4" />
+                </svg>
+                <input
+                  id="password"
+                  type="password"
+                  value={password}
+                  onChange={(e) => setPassword(e.target.value)}
+                  placeholder="Enter your password"
+                  required
+                  autoComplete="current-password"
+                />
+              </div>
+            </div>
+
+            <button type="submit" className="login-btn" disabled={loading}>
+              {loading ? (
+                <>
+                  <span className="spinner" />
+                  Signing in...
+                </>
+              ) : (
+                <>
+                  Sign In
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                    <path d="M5 12h14M12 5l7 7-7 7" />
+                  </svg>
+                </>
+              )}
+            </button>
+          </form>
 
           <div className="login-footer">
-            <div className="divider">
-              <span>Demo Credentials</span>
-            </div>
-            <div className="demo-creds">
-              <code>admin@apisdigitech.com</code>
-              <code>admin123</code>
-            </div>
+            <p className="login-note">Contact the administrator if you forgot your password.</p>
           </div>
         </div>
 
@@ -183,58 +150,12 @@ export default function LoginPage() {
           padding: 1.5rem;
           position: relative;
           overflow: hidden;
-          opacity: 0;
-          transition: opacity 0.3s ease;
-        }
-
-        .login-page.mounted {
-          opacity: 1;
         }
 
         .bg-gradient {
           position: absolute;
           inset: 0;
-          background: radial-gradient(ellipse at 50% 0%, rgba(37, 99, 235, 0.08) 0%, transparent 50%);
-        }
-
-        .bg-grid {
-          position: absolute;
-          inset: 0;
-          background-image:
-            linear-gradient(rgba(255, 255, 255, 0.02) 1px, transparent 1px),
-            linear-gradient(90deg, rgba(255, 255, 255, 0.02) 1px, transparent 1px);
-          background-size: 50px 50px;
-          mask-image: radial-gradient(ellipse at center, black 30%, transparent 70%);
-        }
-
-        .bg-glow {
-          position: absolute;
-          border-radius: 50%;
-          filter: blur(100px);
-          opacity: 0.4;
-          animation: float 20s ease-in-out infinite;
-        }
-
-        .glow-1 {
-          width: 300px;
-          height: 300px;
-          background: linear-gradient(135deg, #2563eb, #7c3aed);
-          top: -150px;
-          right: -50px;
-        }
-
-        .glow-2 {
-          width: 250px;
-          height: 250px;
-          background: linear-gradient(135deg, #7c3aed, #2563eb);
-          bottom: -125px;
-          left: -50px;
-          animation-delay: -10s;
-        }
-
-        @keyframes float {
-          0%, 100% { transform: translate(0, 0) scale(1); }
-          50% { transform: translate(20px, 20px) scale(1.05); }
+          background: radial-gradient(ellipse at 50% 0%, rgba(37, 99, 235, 0.15) 0%, transparent 60%);
         }
 
         .login-container {
@@ -331,33 +252,10 @@ export default function LoginPage() {
           border-top: 1px solid rgba(255, 255, 255, 0.06);
         }
 
-        .divider {
-          text-align: center;
-          margin-bottom: 0.75rem;
-        }
-
-        .divider span {
-          font-size: 0.6875rem;
-          color: #475569;
-          text-transform: uppercase;
-          letter-spacing: 0.05em;
-        }
-
-        .demo-creds {
-          display: flex;
-          justify-content: center;
-          gap: 0.5rem;
-          flex-wrap: wrap;
-        }
-
-        .demo-creds code {
-          padding: 0.3rem 0.625rem;
-          background: rgba(255, 255, 255, 0.05);
-          border: 1px solid rgba(255, 255, 255, 0.08);
-          border-radius: 6px;
-          color: #94a3b8;
+        .login-note {
           font-size: 0.75rem;
-          font-family: ui-monospace, monospace;
+          color: #64748b;
+          text-align: center;
         }
 
         .back-link {
@@ -382,30 +280,6 @@ export default function LoginPage() {
 
         .back-link :global(svg) {
           transition: transform 0.2s;
-        }
-
-        .login-form-skeleton {
-          padding: 0.5rem 0;
-        }
-
-        .skeleton-field {
-          height: 72px;
-          background: rgba(255, 255, 255, 0.03);
-          border-radius: 10px;
-          margin-bottom: 1rem;
-          animation: pulse 1.5s ease-in-out infinite;
-        }
-
-        .skeleton-btn {
-          height: 48px;
-          background: rgba(37, 99, 235, 0.2);
-          border-radius: 10px;
-          animation: pulse 1.5s ease-in-out infinite;
-        }
-
-        @keyframes pulse {
-          0%, 100% { opacity: 1; }
-          50% { opacity: 0.5; }
         }
 
         @media (max-width: 480px) {
@@ -440,25 +314,6 @@ export default function LoginPage() {
 
           .card-header h1 {
             font-size: 1.375rem;
-          }
-
-          .demo-creds {
-            flex-direction: column;
-            align-items: center;
-          }
-
-          .glow-1 {
-            width: 200px;
-            height: 200px;
-            top: -100px;
-            right: -50px;
-          }
-
-          .glow-2 {
-            width: 180px;
-            height: 180px;
-            bottom: -90px;
-            left: -50px;
           }
         }
       `}</style>

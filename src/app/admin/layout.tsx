@@ -2,10 +2,11 @@
 
 import Link from 'next/link';
 import { usePathname, useRouter } from 'next/navigation';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 
 const navItems = [
   { href: '/admin/dashboard', label: 'Dashboard', icon: 'M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6' },
+  { href: '/admin/inquiries', label: 'Inquiries', icon: 'M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2zM22 6l-10 7L2 6' },
   { href: '/admin/blog', label: 'Blog Posts', icon: 'M19 20H5a2 2 0 01-2-2V6a2 2 0 012-2h10a2 2 0 012 2v1m2 13a2 2 0 01-2-2V7m2 13a2 2 0 002-2V9a2 2 0 00-2-2h-2m-4-3H9M7 16h6M7 8h6v4H7V8z' },
   { href: '/admin/pricing', label: 'Pricing', icon: 'M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z' },
   { href: '/admin/reviews', label: 'Reviews', icon: 'M11.049 2.927c.3-.921 1.603-.921 1.902 0l1.519 4.674a1 1 0 00.95.69h4.915c.969 0 1.371 1.24.588 1.81l-3.976 2.888a1 1 0 00-.363 1.118l1.518 4.674c.3.922-.755 1.688-1.538 1.118l-3.976-2.888a1 1 0 00-1.176 0l-3.976 2.888c-.783.57-1.838-.197-1.538-1.118l1.518-4.674a1 1 0 00-.363-1.118l-3.976-2.888c-.784-.57-.38-1.81.588-1.81h4.914a1 1 0 00.951-.69l1.519-4.674z' },
@@ -19,9 +20,21 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
   const pathname = usePathname();
   const router = useRouter();
   const [sidebarOpen, setSidebarOpen] = useState(false);
+  const [isReady, setIsReady] = useState(false);
+
+  const isLoginPage = pathname === '/admin/login';
+
+  useEffect(() => {
+    setIsReady(true);
+  }, []);
+
+  // Don't show anything until we know the pathname - just dark bg to prevent flash
+  if (!isReady) {
+    return <div style={{ minHeight: '100vh', background: '#080c14' }} />;
+  }
 
   // Don't show layout on login page
-  if (pathname === '/admin/login') {
+  if (isLoginPage) {
     return <>{children}</>;
   }
 
@@ -54,7 +67,7 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
 
         <div className="nav-section-label">Content</div>
         <nav className="admin-nav">
-          {navItems.slice(0, 6).map((item, index) => (
+          {navItems.slice(0, 7).map((item, index) => (
             <Link
               key={item.href}
               href={item.href}
@@ -75,7 +88,7 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
 
         <div className="nav-section-label">Configuration</div>
         <nav className="admin-nav">
-          {navItems.slice(6).map((item, index) => (
+          {navItems.slice(7).map((item, index) => (
             <Link
               key={item.href}
               href={item.href}
@@ -356,13 +369,14 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
           margin-left: 280px;
           display: flex;
           flex-direction: column;
-          min-height: 100vh;
+          height: 100vh;
+          overflow-y: auto;
+          overflow-x: hidden;
         }
 
         .admin-header {
           height: 72px;
-          background: rgba(15, 23, 42, 0.8);
-          backdrop-filter: blur(12px);
+          background: #0f172a;
           border-bottom: 1px solid rgba(255,255,255,0.06);
           display: flex;
           align-items: center;
@@ -430,7 +444,8 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
         .admin-content {
           flex: 1;
           padding: 2rem;
-          background: linear-gradient(180deg, rgba(8,12,20,0) 0%, rgba(8,12,20,1) 100%);
+          background: #080c14;
+          min-height: 0;
         }
 
         .content-wrapper {
@@ -518,6 +533,164 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
           .admin-content {
             padding: 0.875rem;
           }
+        }
+      `}</style>
+
+      <style jsx global>{`
+        /* ===== ADMIN DARK THEME OVERRIDES ===== */
+        /* Override body for admin pages */
+        body:has(.admin-layout) {
+          background: #080c14 !important;
+          color: #e2e8f0 !important;
+        }
+
+        /* Base dark theme for entire admin */
+        .admin-layout,
+        .admin-layout * {
+          border-color: rgba(255, 255, 255, 0.08);
+        }
+
+        .admin-layout {
+          color: #e2e8f0;
+        }
+
+        /* All text elements */
+        .admin-layout h1,
+        .admin-layout h2,
+        .admin-layout h3,
+        .admin-layout h4 {
+          color: #fff !important;
+        }
+
+        .admin-layout p,
+        .admin-layout span,
+        .admin-layout label {
+          color: inherit;
+        }
+
+        /* Links */
+        .admin-layout a {
+          color: inherit;
+        }
+
+        /* Force admin inputs dark theme */
+        .admin-layout input,
+        .admin-layout textarea,
+        .admin-layout select {
+          background: #1e293b !important;
+          color: #f1f5f9 !important;
+          border: 1px solid rgba(255, 255, 255, 0.12) !important;
+          caret-color: #3b82f6;
+        }
+
+        .admin-layout input:hover,
+        .admin-layout textarea:hover,
+        .admin-layout select:hover {
+          background: #1e293b !important;
+          border-color: rgba(255, 255, 255, 0.2) !important;
+        }
+
+        .admin-layout input:focus,
+        .admin-layout textarea:focus,
+        .admin-layout select:focus,
+        .admin-layout input:focus-visible,
+        .admin-layout textarea:focus-visible,
+        .admin-layout select:focus-visible {
+          background: #1e293b !important;
+          border-color: #3b82f6 !important;
+          box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.2) !important;
+          outline: none !important;
+          color: #f1f5f9 !important;
+        }
+
+        .admin-layout input::placeholder,
+        .admin-layout textarea::placeholder {
+          color: #64748b !important;
+        }
+
+        .admin-layout select option {
+          background: #1e293b;
+          color: #f1f5f9;
+        }
+
+        /* Override any remaining global light-theme class conflicts */
+        .admin-layout .page-title {
+          color: #fff !important;
+          font-size: 1.25rem !important;
+        }
+
+        .admin-layout .section-title {
+          color: #fff !important;
+        }
+
+        .admin-layout .page-desc,
+        .admin-layout .section-subtitle {
+          color: #94a3b8 !important;
+        }
+
+        /* Override global button styles that may leak */
+        .admin-layout button {
+          color: inherit;
+        }
+
+        /* Custom scrollbar for admin */
+        .admin-main::-webkit-scrollbar {
+          width: 8px;
+        }
+
+        .admin-main::-webkit-scrollbar-track {
+          background: #0c1322;
+        }
+
+        .admin-main::-webkit-scrollbar-thumb {
+          background: #334155;
+          border-radius: 4px;
+        }
+
+        .admin-main::-webkit-scrollbar-thumb:hover {
+          background: #475569;
+        }
+
+        /* Firefox scrollbar */
+        .admin-main {
+          scrollbar-width: thin;
+          scrollbar-color: #334155 #0c1322;
+        }
+
+        /* Sidebar scrollbar */
+        .admin-sidebar {
+          overflow-y: auto;
+          scrollbar-width: thin;
+          scrollbar-color: #1e293b transparent;
+        }
+
+        .admin-sidebar::-webkit-scrollbar {
+          width: 4px;
+        }
+
+        .admin-sidebar::-webkit-scrollbar-track {
+          background: transparent;
+        }
+
+        .admin-sidebar::-webkit-scrollbar-thumb {
+          background: #1e293b;
+          border-radius: 2px;
+        }
+
+        /* Override any white backgrounds from global CSS */
+        .admin-layout .form-field,
+        .admin-layout .form-group {
+          background: transparent !important;
+        }
+
+        .admin-layout .form-field input,
+        .admin-layout .form-group input,
+        .admin-layout .form-field textarea,
+        .admin-layout .form-group textarea,
+        .admin-layout .form-field select,
+        .admin-layout .form-group select {
+          background: #1e293b !important;
+          color: #f1f5f9 !important;
         }
       `}</style>
     </div>

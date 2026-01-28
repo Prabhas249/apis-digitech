@@ -1,10 +1,25 @@
 {
   "tabs": [
-    { "id": "seo", "label": "SEO Packages" },
-    { "id": "aeo", "label": "AEO Packages" },
-    { "id": "geo", "label": "GEO Packages" },
-    { "id": "local", "label": "Local SEO" },
-    { "id": "web", "label": "Web Development" }
+    {
+      "id": "seo",
+      "label": "SEO Packages"
+    },
+    {
+      "id": "aeo",
+      "label": "AEO Packages"
+    },
+    {
+      "id": "geo",
+      "label": "GEO Packages"
+    },
+    {
+      "id": "local",
+      "label": "Local SEO"
+    },
+    {
+      "id": "web",
+      "label": "Web Development"
+    }
   ],
   "plans": [
     {

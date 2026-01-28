@@ -41,6 +41,8 @@ export default function SettingsPage() {
   const [loading, setLoading] = useState(true);
   const [saving, setSaving] = useState(false);
   const [keywordsText, setKeywordsText] = useState('');
+  const [passwordData, setPasswordData] = useState({ current: '', new: '', confirm: '' });
+  const [changingPassword, setChangingPassword] = useState(false);
 
   const [toast, setToast] = useState<{ message: string; type: 'success' | 'error' } | null>(null);
 
@@ -112,6 +114,48 @@ export default function SettingsPage() {
     setData({ ...data, seo: { ...data.seo, [field]: value } });
   };
 
+  const handlePasswordChange = async () => {
+    if (!passwordData.current || !passwordData.new || !passwordData.confirm) {
+      setToast({ message: 'Please fill all password fields', type: 'error' });
+      return;
+    }
+
+    if (passwordData.new !== passwordData.confirm) {
+      setToast({ message: 'New passwords do not match', type: 'error' });
+      return;
+    }
+
+    if (passwordData.new.length < 6) {
+      setToast({ message: 'Password must be at least 6 characters', type: 'error' });
+      return;
+    }
+
+    setChangingPassword(true);
+    try {
+      const res = await fetch('/api/admin/auth/password', {
+        method: 'PUT',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          currentPassword: passwordData.current,
+          newPassword: passwordData.new,
+        }),
+      });
+
+      const result = await res.json();
+
+      if (!res.ok) {
+        throw new Error(result.error || 'Failed to change password');
+      }
+
+      setToast({ message: 'Password changed successfully!', type: 'success' });
+      setPasswordData({ current: '', new: '', confirm: '' });
+    } catch (error) {
+      setToast({ message: error instanceof Error ? error.message : 'Failed to change password', type: 'error' });
+    } finally {
+      setChangingPassword(false);
+    }
+  };
+
   if (loading) {
     return (
       <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', height: '50vh' }}>
@@ -131,12 +175,12 @@ export default function SettingsPage() {
       />
 
       {/* Site Info */}
-      <div className="settings-section">
-        <div className="section-header">
+      <div className="admin-settings-section">
+        <div className="admin-section-header">
           <h3>Site Information</h3>
         </div>
 
-        <div className="form-grid">
+        <div className="admin-form-grid">
           <FormField label="Site Name">
             <Input
               value={data.site.name}
@@ -173,12 +217,12 @@ export default function SettingsPage() {
       </div>
 
       {/* Contact Info */}
-      <div className="settings-section">
-        <div className="section-header">
+      <div className="admin-settings-section">
+        <div className="admin-section-header">
           <h3>Contact Information</h3>
         </div>
 
-        <div className="form-grid">
+        <div className="admin-form-grid">
           <FormField label="Email">
             <Input
               type="email"
@@ -207,12 +251,12 @@ export default function SettingsPage() {
       </div>
 
       {/* Social Links */}
-      <div className="settings-section">
-        <div className="section-header">
+      <div className="admin-settings-section">
+        <div className="admin-section-header">
           <h3>Social Media</h3>
         </div>
 
-        <div className="form-grid">
+        <div className="admin-form-grid">
           <FormField label="Twitter">
             <Input
               value={data.social.twitter}
@@ -248,8 +292,8 @@ export default function SettingsPage() {
       </div>
 
       {/* SEO Settings */}
-      <div className="settings-section">
-        <div className="section-header">
+      <div className="admin-settings-section">
+        <div className="admin-section-header">
           <h3>SEO Settings</h3>
         </div>
 
@@ -287,6 +331,50 @@ export default function SettingsPage() {
         </FormField>
       </div>
 
+      {/* Security Settings */}
+      <div className="admin-settings-section">
+        <div className="admin-section-header">
+          <h3>Security - Change Password</h3>
+        </div>
+
+        <div className="admin-form-grid">
+          <FormField label="Current Password">
+            <Input
+              type="password"
+              value={passwordData.current}
+              onChange={(e) => setPasswordData({ ...passwordData, current: e.target.value })}
+              placeholder="Enter current password"
+            />
+          </FormField>
+        </div>
+
+        <div className="admin-form-grid">
+          <FormField label="New Password">
+            <Input
+              type="password"
+              value={passwordData.new}
+              onChange={(e) => setPasswordData({ ...passwordData, new: e.target.value })}
+              placeholder="Enter new password (min 6 chars)"
+            />
+          </FormField>
+
+          <FormField label="Confirm New Password">
+            <Input
+              type="password"
+              value={passwordData.confirm}
+              onChange={(e) => setPasswordData({ ...passwordData, confirm: e.target.value })}
+              placeholder="Confirm new password"
+            />
+          </FormField>
+        </div>
+
+        <div style={{ marginTop: '1rem' }}>
+          <Button onClick={handlePasswordChange} loading={changingPassword} variant="danger">
+            Change Password
+          </Button>
+        </div>
+      </div>
+
       {toast && (
         <Toast
           message={toast.message}
@@ -296,24 +384,24 @@ export default function SettingsPage() {
       )}
 
       <style jsx>{`
-        .settings-section {
+        .admin-settings-section {
           background: #0f172a;
           border: 1px solid rgba(255,255,255,0.08);
           border-radius: 12px;
           padding: 1.5rem;
           margin-bottom: 1.5rem;
         }
-        .section-header {
+        .admin-section-header {
           margin-bottom: 1.25rem;
           padding-bottom: 1rem;
           border-bottom: 1px solid rgba(255,255,255,0.08);
         }
-        .section-header h3 {
+        .admin-section-header h3 {
           font-size: 1.125rem;
           font-weight: 600;
           color: #fff;
         }
-        .form-grid {
+        .admin-form-grid {
           display: grid;
           grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
           gap: 1rem;

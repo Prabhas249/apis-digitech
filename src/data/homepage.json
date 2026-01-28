@@ -4,14 +4,26 @@
     "subtitle": "We help businesses achieve #1 rankings through strategic SEO, AEO, and GEO optimization. Get found by customers searching for your services.",
     "ctaText": "Get Free Audit",
     "ctaLink": "/contact",
-    "secondaryCtaText": "View Pricing",
+    "secondaryCtaText": "View Packages",
     "secondaryCtaLink": "/pricing"
   },
   "stats": [
-    { "value": "500+", "label": "Clients Served" },
-    { "value": "340%", "label": "Avg Traffic Growth" },
-    { "value": "94%", "label": "Client Retention" },
-    { "value": "50+", "label": "5-Star Reviews" }
+    {
+      "value": "500+",
+      "label": "Clients Served"
+    },
+    {
+      "value": "340%",
+      "label": "Avg Traffic Growth"
+    },
+    {
+      "value": "94%",
+      "label": "Client Retention"
+    },
+    {
+      "value": "50+",
+      "label": "5-Star Reviews"
+    }
   ],
   "services": {
     "title": "Our Services",

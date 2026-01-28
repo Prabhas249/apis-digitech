@@ -149,10 +149,10 @@ export default function ServicesPage() {
                 </div>
               )}
             </div>
-            <Link href="/pricing" className="nav-item" onClick={() => setMobileMenuOpen(false)}>Pricing</Link>
+            <Link href="/contact" className="nav-item" onClick={() => setMobileMenuOpen(false)}>Contact</Link>
             <Link href="/blog" className="nav-item" onClick={() => setMobileMenuOpen(false)}>Blog</Link>
             <Link href="/reviews" className="nav-item" onClick={() => setMobileMenuOpen(false)}>Reviews</Link>
-            <Link href="/contact" className="nav-item nav-item--cta" onClick={() => setMobileMenuOpen(false)}>Contact us</Link>
+            <Link href="/pricing" className="nav-item nav-item--cta" onClick={() => setMobileMenuOpen(false)}>View Plans</Link>
           </div>
         </div>
       </nav>
@@ -260,8 +260,8 @@ export default function ServicesPage() {
           <div className="footer-column">
             <h4>Contact</h4>
             <div className="footer-links">
-              <span className="footer-link">hello@apisdigitech.com</span>
-              <span className="footer-link">Texas, USA</span>
+              <span className="footer-link">support@apisdigitech.com</span>
+              <span className="footer-link">30 N Gould St Ste R, Sheridan, WY 82801</span>
             </div>
           </div>
         </div>

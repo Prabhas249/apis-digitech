@@ -117,10 +117,10 @@ export default function GEOServicePage() {
                 </div>
               )}
             </div>
-            <Link href="/pricing" className="nav-item" onClick={() => setMobileMenuOpen(false)}>Pricing</Link>
+            <Link href="/contact" className="nav-item" onClick={() => setMobileMenuOpen(false)}>Contact</Link>
             <Link href="/blog" className="nav-item" onClick={() => setMobileMenuOpen(false)}>Blog</Link>
             <Link href="/reviews" className="nav-item" onClick={() => setMobileMenuOpen(false)}>Reviews</Link>
-            <Link href="/contact" className="nav-item nav-item--cta" onClick={() => setMobileMenuOpen(false)}>Contact us</Link>
+            <Link href="/pricing" className="nav-item nav-item--cta" onClick={() => setMobileMenuOpen(false)}>View Plans</Link>
           </div>
         </div>
       </nav>
@@ -147,7 +147,7 @@ export default function GEOServicePage() {
                 <path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
               </svg>
             </Link>
-            <Link href="/pricing" className="btn btn--ghost">View Pricing</Link>
+            <Link href="/pricing" className="btn btn--ghost">View Packages</Link>
           </div>
         </div>
         <div className="page-header-visual">
@@ -260,10 +260,16 @@ export default function GEOServicePage() {
             <div className="footer-contact">
               <div className="footer-contact-item">
                 <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                  <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/>
+                </svg>
+                <span>30 N Gould St Ste R, Sheridan, WY 82801</span>
+              </div>
+              <div className="footer-contact-item">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
                   <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
                   <polyline points="22,6 12,13 2,6"/>
                 </svg>
-                <span>hello@apisdigitech.com</span>
+                <span>support@apisdigitech.com</span>
               </div>
             </div>
           </div>

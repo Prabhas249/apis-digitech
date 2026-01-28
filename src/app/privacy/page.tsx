@@ -59,10 +59,10 @@ export default function PrivacyPolicyPage() {
                 </div>
               )}
             </div>
-            <Link href="/pricing" className="nav-item" onClick={() => setMobileMenuOpen(false)}>Pricing</Link>
+            <Link href="/contact" className="nav-item" onClick={() => setMobileMenuOpen(false)}>Contact</Link>
             <Link href="/blog" className="nav-item" onClick={() => setMobileMenuOpen(false)}>Blog</Link>
             <Link href="/reviews" className="nav-item" onClick={() => setMobileMenuOpen(false)}>Reviews</Link>
-            <Link href="/contact" className="nav-item nav-item--cta" onClick={() => setMobileMenuOpen(false)}>Contact us</Link>
+            <Link href="/pricing" className="nav-item nav-item--cta" onClick={() => setMobileMenuOpen(false)}>View Plans</Link>
           </div>
         </div>
       </nav>
@@ -155,8 +155,8 @@ export default function PrivacyPolicyPage() {
           If you have any questions about this privacy policy, please contact us at:
         </p>
         <p>
-          <strong>Email:</strong> hello@apisdigitech.com<br/>
-          <strong>Location:</strong> Texas, USA
+          <strong>Email:</strong> support@apisdigitech.com<br/>
+          <strong>Address:</strong> 30 N Gould St Ste R, Sheridan, WY 82801
         </p>
       </article>
 
@@ -184,7 +184,7 @@ export default function PrivacyPolicyPage() {
                   <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
                   <polyline points="22,6 12,13 2,6"/>
                 </svg>
-                <span>hello@apisdigitech.com</span>
+                <span>support@apisdigitech.com</span>
               </div>
             </div>
           </div>

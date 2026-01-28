@@ -4,6 +4,7 @@ import { useEffect, useState } from 'react';
 import Link from 'next/link';
 
 interface Stats {
+  inquiries: number;
   blogPosts: number;
   pricingPlans: number;
   reviews: number;
@@ -12,11 +13,12 @@ interface Stats {
 }
 
 const statCards = [
-  { key: 'blogPosts', label: 'Blog Posts', href: '/admin/blog', icon: 'M19 20H5a2 2 0 01-2-2V6a2 2 0 012-2h10a2 2 0 012 2v1m2 13a2 2 0 01-2-2V7m2 13a2 2 0 002-2V9a2 2 0 00-2-2h-2m-4-3H9M7 16h6M7 8h6v4H7V8z', color: '#3b82f6', bgColor: 'rgba(59, 130, 246, 0.12)' },
-  { key: 'pricingPlans', label: 'Pricing Plans', href: '/admin/pricing', icon: 'M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z', color: '#22c55e', bgColor: 'rgba(34, 197, 94, 0.12)' },
-  { key: 'reviews', label: 'Reviews', href: '/admin/reviews', icon: 'M11.049 2.927c.3-.921 1.603-.921 1.902 0l1.519 4.674a1 1 0 00.95.69h4.915c.969 0 1.371 1.24.588 1.81l-3.976 2.888a1 1 0 00-.363 1.118l1.518 4.674c.3.922-.755 1.688-1.538 1.118l-3.976-2.888a1 1 0 00-1.176 0l-3.976 2.888c-.783.57-1.838-.197-1.538-1.118l1.518-4.674a1 1 0 00-.363-1.118l-3.976-2.888c-.784-.57-.38-1.81.588-1.81h4.914a1 1 0 00.951-.69l1.519-4.674z', color: '#f59e0b', bgColor: 'rgba(245, 158, 11, 0.12)' },
-  { key: 'faqs', label: 'FAQs', href: '/admin/faqs', icon: 'M8.228 9c.549-1.165 2.03-2 3.772-2 2.21 0 4 1.343 4 3 0 1.4-1.278 2.575-3.006 2.907-.542.104-.994.54-.994 1.093m0 3h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z', color: '#a855f7', bgColor: 'rgba(168, 85, 247, 0.12)' },
-  { key: 'caseStudies', label: 'Case Studies', href: '/admin/case-studies', icon: 'M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z', color: '#ec4899', bgColor: 'rgba(236, 72, 153, 0.12)' },
+  { key: 'inquiries', label: 'Inquiries', href: '/admin/inquiries', icon: 'M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2zM22 6l-10 7L2 6', color: '#ef4444', bgColor: 'rgba(239, 68, 68, 0.15)' },
+  { key: 'blogPosts', label: 'Blog Posts', href: '/admin/blog', icon: 'M19 20H5a2 2 0 01-2-2V6a2 2 0 012-2h10a2 2 0 012 2v1m2 13a2 2 0 01-2-2V7m2 13a2 2 0 002-2V9a2 2 0 00-2-2h-2m-4-3H9M7 16h6M7 8h6v4H7V8z', color: '#3b82f6', bgColor: 'rgba(59, 130, 246, 0.15)' },
+  { key: 'pricingPlans', label: 'Pricing Plans', href: '/admin/pricing', icon: 'M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z', color: '#22c55e', bgColor: 'rgba(34, 197, 94, 0.15)' },
+  { key: 'reviews', label: 'Reviews', href: '/admin/reviews', icon: 'M11.049 2.927c.3-.921 1.603-.921 1.902 0l1.519 4.674a1 1 0 00.95.69h4.915c.969 0 1.371 1.24.588 1.81l-3.976 2.888a1 1 0 00-.363 1.118l1.518 4.674c.3.922-.755 1.688-1.538 1.118l-3.976-2.888a1 1 0 00-1.176 0l-3.976 2.888c-.783.57-1.838-.197-1.538-1.118l1.518-4.674a1 1 0 00-.363-1.118l-3.976-2.888c-.784-.57-.38-1.81.588-1.81h4.914a1 1 0 00.951-.69l1.519-4.674z', color: '#f59e0b', bgColor: 'rgba(245, 158, 11, 0.15)' },
+  { key: 'faqs', label: 'FAQs', href: '/admin/faqs', icon: 'M8.228 9c.549-1.165 2.03-2 3.772-2 2.21 0 4 1.343 4 3 0 1.4-1.278 2.575-3.006 2.907-.542.104-.994.54-.994 1.093m0 3h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z', color: '#a855f7', bgColor: 'rgba(168, 85, 247, 0.15)' },
+  { key: 'caseStudies', label: 'Case Studies', href: '/admin/case-studies', icon: 'M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z', color: '#ec4899', bgColor: 'rgba(236, 72, 153, 0.15)' },
 ];
 
 function getGreeting(): string {
@@ -49,7 +51,8 @@ export default function DashboardPage() {
   useEffect(() => {
     async function fetchStats() {
       try {
-        const [blog, pricing, reviews, faqs, caseStudies] = await Promise.all([
+        const [inquiries, blog, pricing, reviews, faqs, caseStudies] = await Promise.all([
+          fetch('/api/admin/inquiries').then((r) => r.json()),
           fetch('/api/admin/blog').then((r) => r.json()),
           fetch('/api/admin/pricing').then((r) => r.json()),
           fetch('/api/admin/reviews').then((r) => r.json()),
@@ -58,6 +61,7 @@ export default function DashboardPage() {
         ]);
 
         setStats({
+          inquiries: inquiries.inquiries?.length || 0,
           blogPosts: blog.posts?.length || 0,
           pricingPlans: pricing.plans?.length || 0,
           reviews: reviews.reviews?.length || 0,
@@ -86,9 +90,9 @@ export default function DashboardPage() {
       </div>
 
       {/* Stats Grid */}
-      <div className="stats-section">
-        <h2 className="section-title">Content Overview</h2>
-        <div className="stats-grid">
+      <div className="admin-stats-section">
+        <h2 className="admin-section-title">Content Overview</h2>
+        <div className="admin-stats-grid">
           {statCards.map((stat, index) => (
             <Link key={stat.key} href={stat.href} className="stat-card" style={{ animationDelay: `${index * 0.05}s` }}>
               <div className="stat-icon-wrapper" style={{ background: stat.bgColor }}>
@@ -206,7 +210,7 @@ export default function DashboardPage() {
           font-size: 0.9375rem;
         }
 
-        .section-title {
+        .admin-section-title {
           font-size: 0.8125rem;
           font-weight: 600;
           text-transform: uppercase;
@@ -215,11 +219,11 @@ export default function DashboardPage() {
           margin-bottom: 1rem;
         }
 
-        .stats-section {
+        .admin-stats-section {
           margin-bottom: 2rem;
         }
 
-        .stats-grid {
+        .admin-stats-grid {
           display: grid;
           grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
           gap: 1rem;
@@ -229,14 +233,14 @@ export default function DashboardPage() {
           display: flex;
           flex-direction: column;
           padding: 1.25rem;
-          background: linear-gradient(145deg, #1e293b 0%, #0f172a 100%);
-          border: 1px solid rgba(255,255,255,0.12);
+          background: #111827;
+          border: 1px solid rgba(255,255,255,0.1);
           border-radius: 14px;
           text-decoration: none;
           transition: all 0.25s ease;
           animation: fadeInUp 0.4s ease forwards;
           opacity: 0;
-          box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+          box-shadow: 0 2px 8px rgba(0,0,0,0.2);
         }
 
         @keyframes fadeInUp {
@@ -253,8 +257,8 @@ export default function DashboardPage() {
         .stat-card:hover {
           border-color: rgba(255,255,255,0.2);
           transform: translateY(-3px);
-          box-shadow: 0 12px 32px -8px rgba(0,0,0,0.5);
-          background: linear-gradient(145deg, #253548 0%, #1e293b 100%);
+          box-shadow: 0 8px 24px rgba(0,0,0,0.3);
+          background: #1a2332;
         }
 
         .stat-icon-wrapper {
@@ -297,7 +301,7 @@ export default function DashboardPage() {
 
         .stat-label {
           font-size: 0.875rem;
-          color: #94a3b8;
+          color: #cbd5e1;
           font-weight: 500;
         }
 
@@ -332,11 +336,11 @@ export default function DashboardPage() {
         }
 
         .dashboard-card {
-          background: linear-gradient(145deg, #1e293b 0%, #0f172a 100%);
-          border: 1px solid rgba(255,255,255,0.12);
+          background: #111827;
+          border: 1px solid rgba(255,255,255,0.1);
           border-radius: 14px;
           padding: 1.5rem;
-          box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+          box-shadow: 0 2px 8px rgba(0,0,0,0.2);
         }
 
         .card-title {
@@ -441,7 +445,7 @@ export default function DashboardPage() {
         .status-value.green { color: #22c55e; }
 
         @media (max-width: 768px) {
-          .stats-grid {
+          .admin-stats-grid {
             grid-template-columns: repeat(2, 1fr);
           }
 
@@ -451,7 +455,7 @@ export default function DashboardPage() {
         }
 
         @media (max-width: 480px) {
-          .stats-grid {
+          .admin-stats-grid {
             grid-template-columns: 1fr;
           }
 

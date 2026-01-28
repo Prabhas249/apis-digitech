@@ -11,32 +11,38 @@ import {
 } from '@/components/admin/AdminComponents';
 
 interface HeroData {
-  status: string;
   title: string;
-  titleGradient: string;
-  description: string;
-  ctaPrimary: string;
-  ctaSecondary: string;
-  stats: { value: string; label: string }[];
+  subtitle: string;
+  ctaText: string;
+  ctaLink: string;
+  secondaryCtaText: string;
+  secondaryCtaLink: string;
+}
+
+interface StatItem {
+  value: string;
+  label: string;
 }
 
 interface CtaData {
   title: string;
-  description: string;
+  subtitle: string;
   buttonText: string;
-  email: string;
+  buttonLink: string;
 }
 
 interface HomepageData {
   hero: HeroData;
+  stats: StatItem[];
   cta: CtaData;
+  [key: string]: unknown;
 }
 
 export default function HomepagePage() {
   const [data, setData] = useState<HomepageData | null>(null);
   const [loading, setLoading] = useState(true);
   const [saving, setSaving] = useState(false);
-  const [activeTab, setActiveTab] = useState<'hero' | 'cta'>('hero');
+  const [activeTab, setActiveTab] = useState<'hero' | 'stats' | 'cta'>('hero');
 
   const [toast, setToast] = useState<{ message: string; type: 'success' | 'error' } | null>(null);
 
@@ -87,13 +93,13 @@ export default function HomepagePage() {
     });
   };
 
-  const updateHeroStat = (index: number, field: 'value' | 'label', value: string) => {
+  const updateStat = (index: number, field: 'value' | 'label', value: string) => {
     if (!data) return;
-    const newStats = [...data.hero.stats];
+    const newStats = [...data.stats];
     newStats[index] = { ...newStats[index], [field]: value };
     setData({
       ...data,
-      hero: { ...data.hero, stats: newStats }
+      stats: newStats
     });
   };
 
@@ -117,6 +123,7 @@ export default function HomepagePage() {
 
   const tabs = [
     { id: 'hero' as const, label: 'Hero Section' },
+    { id: 'stats' as const, label: 'Stats' },
     { id: 'cta' as const, label: 'CTA Section' }
   ];
 
@@ -129,11 +136,11 @@ export default function HomepagePage() {
       />
 
       {/* Tabs */}
-      <div className="tabs">
+      <div className="homepage-tabs">
         {tabs.map((tab) => (
           <button
             key={tab.id}
-            className={`tab ${activeTab === tab.id ? 'active' : ''}`}
+            className={`homepage-tab ${activeTab === tab.id ? 'active' : ''}`}
             onClick={() => setActiveTab(tab.id)}
           >
             {tab.label}
@@ -143,95 +150,102 @@ export default function HomepagePage() {
 
       {/* Hero Section */}
       {activeTab === 'hero' && (
-        <div className="editor-section">
-          <div className="section-header">
+        <div className="admin-editor-section">
+          <div className="admin-section-header">
             <h3>Hero Section</h3>
             <p>Edit the main hero area of your homepage</p>
           </div>
 
-          <div className="form-grid">
-            <FormField label="Status Badge">
-              <Input
-                value={data.hero.status}
-                onChange={(e) => updateHero('status', e.target.value)}
-                placeholder="Now optimizing for AI Search"
-              />
-            </FormField>
+          <FormField label="Title">
+            <Input
+              value={data.hero.title}
+              onChange={(e) => updateHero('title', e.target.value)}
+              placeholder="Dominate Search. Lead Your Industry."
+            />
+          </FormField>
 
-            <FormField label="Title (main)">
-              <Input
-                value={data.hero.title}
-                onChange={(e) => updateHero('title', e.target.value)}
-                placeholder="Dominate Search"
-              />
-            </FormField>
-
-            <FormField label="Title (gradient part)">
-              <Input
-                value={data.hero.titleGradient}
-                onChange={(e) => updateHero('titleGradient', e.target.value)}
-                placeholder="in the Age of AI"
-              />
-            </FormField>
-          </div>
-
-          <FormField label="Description">
+          <FormField label="Subtitle">
             <Textarea
-              value={data.hero.description}
-              onChange={(e) => updateHero('description', e.target.value)}
-              placeholder="Hero description text..."
+              value={data.hero.subtitle}
+              onChange={(e) => updateHero('subtitle', e.target.value)}
+              placeholder="Hero subtitle text..."
               rows={3}
             />
           </FormField>
 
-          <div className="form-grid">
-            <FormField label="Primary CTA Button">
+          <div className="admin-form-grid">
+            <FormField label="Primary CTA Text">
               <Input
-                value={data.hero.ctaPrimary}
-                onChange={(e) => updateHero('ctaPrimary', e.target.value)}
-                placeholder="Get Free SEO Audit"
+                value={data.hero.ctaText}
+                onChange={(e) => updateHero('ctaText', e.target.value)}
+                placeholder="Get Free Audit"
               />
             </FormField>
 
-            <FormField label="Secondary CTA Button">
+            <FormField label="Primary CTA Link">
               <Input
-                value={data.hero.ctaSecondary}
-                onChange={(e) => updateHero('ctaSecondary', e.target.value)}
-                placeholder="View Services"
+                value={data.hero.ctaLink}
+                onChange={(e) => updateHero('ctaLink', e.target.value)}
+                placeholder="/contact"
               />
             </FormField>
           </div>
 
-          <div className="subsection">
-            <h4>Hero Stats</h4>
-            <div className="stats-grid">
-              {data.hero.stats.map((stat, index) => (
-                <div key={index} className="stat-editor">
-                  <FormField label="Value">
-                    <Input
-                      value={stat.value}
-                      onChange={(e) => updateHeroStat(index, 'value', e.target.value)}
-                      placeholder="500+"
-                    />
-                  </FormField>
-                  <FormField label="Label">
-                    <Input
-                      value={stat.label}
-                      onChange={(e) => updateHeroStat(index, 'label', e.target.value)}
-                      placeholder="SEO Campaigns"
-                    />
-                  </FormField>
-                </div>
-              ))}
-            </div>
+          <div className="admin-form-grid">
+            <FormField label="Secondary CTA Text">
+              <Input
+                value={data.hero.secondaryCtaText}
+                onChange={(e) => updateHero('secondaryCtaText', e.target.value)}
+                placeholder="View Packages"
+              />
+            </FormField>
+
+            <FormField label="Secondary CTA Link">
+              <Input
+                value={data.hero.secondaryCtaLink}
+                onChange={(e) => updateHero('secondaryCtaLink', e.target.value)}
+                placeholder="/pricing"
+              />
+            </FormField>
+          </div>
+        </div>
+      )}
+
+      {/* Stats Section */}
+      {activeTab === 'stats' && (
+        <div className="admin-editor-section">
+          <div className="admin-section-header">
+            <h3>Stats</h3>
+            <p>Edit the statistics displayed on your homepage</p>
+          </div>
+
+          <div className="admin-stats-grid">
+            {data.stats?.map((stat, index) => (
+              <div key={index} className="stat-editor">
+                <FormField label="Value">
+                  <Input
+                    value={stat.value}
+                    onChange={(e) => updateStat(index, 'value', e.target.value)}
+                    placeholder="500+"
+                  />
+                </FormField>
+                <FormField label="Label">
+                  <Input
+                    value={stat.label}
+                    onChange={(e) => updateStat(index, 'label', e.target.value)}
+                    placeholder="Clients Served"
+                  />
+                </FormField>
+              </div>
+            ))}
           </div>
         </div>
       )}
 
       {/* CTA Section */}
       {activeTab === 'cta' && (
-        <div className="editor-section">
-          <div className="section-header">
+        <div className="admin-editor-section">
+          <div className="admin-section-header">
             <h3>Call to Action</h3>
             <p>Edit the CTA section at the bottom of pages</p>
           </div>
@@ -240,33 +254,33 @@ export default function HomepagePage() {
             <Input
               value={data.cta.title}
               onChange={(e) => updateCta('title', e.target.value)}
-              placeholder="Ready to dominate search rankings?"
+              placeholder="Ready to Grow Your Business?"
             />
           </FormField>
 
-          <FormField label="Description">
+          <FormField label="Subtitle">
             <Textarea
-              value={data.cta.description}
-              onChange={(e) => updateCta('description', e.target.value)}
+              value={data.cta.subtitle}
+              onChange={(e) => updateCta('subtitle', e.target.value)}
               placeholder="Get a free SEO audit..."
               rows={2}
             />
           </FormField>
 
-          <div className="form-grid">
+          <div className="admin-form-grid">
             <FormField label="Button Text">
               <Input
                 value={data.cta.buttonText}
                 onChange={(e) => updateCta('buttonText', e.target.value)}
-                placeholder="Get Free SEO Audit"
+                placeholder="Get Free Audit"
               />
             </FormField>
 
-            <FormField label="Contact Email">
+            <FormField label="Button Link">
               <Input
-                value={data.cta.email}
-                onChange={(e) => updateCta('email', e.target.value)}
-                placeholder="hello@apisdigitech.com"
+                value={data.cta.buttonLink}
+                onChange={(e) => updateCta('buttonLink', e.target.value)}
+                placeholder="/contact"
               />
             </FormField>
           </div>
@@ -282,14 +296,14 @@ export default function HomepagePage() {
       )}
 
       <style jsx>{`
-        .tabs {
+        .homepage-tabs {
           display: flex;
           gap: 0.5rem;
           margin-bottom: 1.5rem;
           border-bottom: 1px solid rgba(255,255,255,0.08);
           padding-bottom: 1rem;
         }
-        .tab {
+        .homepage-tab {
           padding: 0.75rem 1.5rem;
           background: transparent;
           border: 1px solid rgba(255,255,255,0.08);
@@ -299,55 +313,44 @@ export default function HomepagePage() {
           cursor: pointer;
           transition: all 0.2s;
         }
-        .tab:hover {
+        .homepage-tab:hover {
           background: rgba(255,255,255,0.05);
           color: #fff;
         }
-        .tab.active {
+        .homepage-tab.active {
           background: linear-gradient(135deg, rgba(37,99,235,0.2), rgba(124,58,237,0.2));
           border-color: rgba(37,99,235,0.3);
           color: #fff;
         }
-        .editor-section {
+        .admin-editor-section {
           background: #0f172a;
           border: 1px solid rgba(255,255,255,0.08);
           border-radius: 12px;
           padding: 1.5rem;
         }
-        .section-header {
+        .admin-section-header {
           margin-bottom: 1.5rem;
           padding-bottom: 1rem;
           border-bottom: 1px solid rgba(255,255,255,0.08);
         }
-        .section-header h3 {
+        .admin-section-header h3 {
           font-size: 1.125rem;
           font-weight: 600;
           color: #fff;
           margin-bottom: 0.25rem;
         }
-        .section-header p {
+        .admin-section-header p {
           color: #64748b;
           font-size: 0.875rem;
         }
-        .form-grid {
+        .admin-form-grid {
           display: grid;
           grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
           gap: 1rem;
         }
-        .subsection {
-          margin-top: 1.5rem;
-          padding-top: 1.5rem;
-          border-top: 1px solid rgba(255,255,255,0.08);
-        }
-        .subsection h4 {
-          font-size: 1rem;
-          font-weight: 600;
-          color: #fff;
-          margin-bottom: 1rem;
-        }
-        .stats-grid {
+        .admin-stats-grid {
           display: grid;
-          grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+          grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
           gap: 1rem;
         }
         .stat-editor {

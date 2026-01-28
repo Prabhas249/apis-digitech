@@ -129,10 +129,10 @@ export default function WebDevelopmentServicePage() {
                 </div>
               )}
             </div>
-            <Link href="/pricing" className="nav-item" onClick={() => setMobileMenuOpen(false)}>Pricing</Link>
+            <Link href="/contact" className="nav-item" onClick={() => setMobileMenuOpen(false)}>Contact</Link>
             <Link href="/blog" className="nav-item" onClick={() => setMobileMenuOpen(false)}>Blog</Link>
             <Link href="/reviews" className="nav-item" onClick={() => setMobileMenuOpen(false)}>Reviews</Link>
-            <Link href="/contact" className="nav-item nav-item--cta" onClick={() => setMobileMenuOpen(false)}>Contact us</Link>
+            <Link href="/pricing" className="nav-item nav-item--cta" onClick={() => setMobileMenuOpen(false)}>View Plans</Link>
           </div>
         </div>
       </nav>
@@ -159,7 +159,7 @@ export default function WebDevelopmentServicePage() {
                 <path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
               </svg>
             </Link>
-            <Link href="/pricing" className="btn btn--ghost">View Pricing</Link>
+            <Link href="/pricing" className="btn btn--ghost">View Packages</Link>
           </div>
         </div>
         <div className="page-header-visual">

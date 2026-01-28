@@ -160,7 +160,7 @@ interface FormFieldProps {
 
 export function FormField({ label, children, error, required }: FormFieldProps) {
   return (
-    <div className="form-field">
+    <div className="admin-form-field">
       <label>
         {label}
         {required && <span className="required">*</span>}
@@ -169,7 +169,7 @@ export function FormField({ label, children, error, required }: FormFieldProps) 
       {error && <span className="error">{error}</span>}
 
       <style jsx>{`
-        .form-field {
+        .admin-form-field {
           margin-bottom: 1rem;
         }
         label {
@@ -687,7 +687,7 @@ interface PageHeaderProps {
 
 export function PageHeader({ title, description, action }: PageHeaderProps) {
   return (
-    <div className="page-header">
+    <div className="admin-page-header">
       <div className="header-text">
         <h1>{title}</h1>
         {description && <p>{description}</p>}
@@ -695,7 +695,7 @@ export function PageHeader({ title, description, action }: PageHeaderProps) {
       {action && <div className="header-action">{action}</div>}
 
       <style jsx>{`
-        .page-header {
+        .admin-page-header {
           display: flex;
           justify-content: space-between;
           align-items: flex-start;
@@ -719,7 +719,7 @@ export function PageHeader({ title, description, action }: PageHeaderProps) {
           flex-shrink: 0;
         }
         @media (max-width: 480px) {
-          .page-header {
+          .admin-page-header {
             flex-direction: column;
             align-items: stretch;
           }
