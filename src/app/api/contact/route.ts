@@ -20,22 +20,27 @@ function writeData(data: { inquiries: unknown[] }) {
 export async function POST(request: Request) {
   try {
     const body = await request.json();
-    const { name, email, phone, company, service, budget, message } = body;
+    const { name, email, phone, company, service, budget, message, url, type } = body;
 
-    if (!name || !email || !message) {
+    if (!email) {
+      return NextResponse.json({ error: 'Email is required' }, { status: 400 });
+    }
+
+    if (type !== 'seo-audit' && (!name || !message)) {
       return NextResponse.json({ error: 'Name, email, and message are required' }, { status: 400 });
     }
 
     const data = readData();
     const newInquiry = {
       id: Date.now().toString(),
-      name,
+      name: name || (type === 'seo-audit' ? 'SEO Audit Request' : ''),
       email,
       phone: phone || '',
       company: company || '',
-      service: service || '',
+      service: service || (type === 'seo-audit' ? 'Free SEO Audit' : ''),
       budget: budget || '',
-      message,
+      message: message || (type === 'seo-audit' ? `SEO Audit requested for: ${url || 'N/A'}` : ''),
+      url: url || '',
       status: 'new',
       createdAt: new Date().toISOString(),
     };
